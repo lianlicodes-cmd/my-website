@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier L - Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav-container">
+        <a href="index.html" class="logo">
+          <img src="./assets/logo.png" alt="Atelier L" class="logo-image" />
+        </a>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#commissions">Commissions/Press</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="masonry-grid" id="masonry-grid">
+        <!-- Grid items will be dynamically populated -->
+        <div
+          class="grid-item large"
+          draggable="true"
+          data-project="commissions"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Commissions Project"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Commissions</span>
+          </div>
+        </div>
+
+        <div
+          class="grid-item medium"
+          draggable="true"
+          data-project="monster-lulu"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Monster with Lulu Wang"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Monster with Lulu Wang</span>
+          </div>
+        </div>
+
+        <div
+          class="grid-item small"
+          draggable="true"
+          data-project="sounds-familiar"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Sounds Familiar"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Sounds Familiar</span>
+          </div>
+        </div>
+
+        <div
+          class="grid-item extra-large"
+          draggable="true"
+          data-project="fortune-cookie"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1487700160041-babef9c3cb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Fortune Cookie"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Fortune Cookie</span>
+          </div>
+        </div>
+
+        <div
+          class="grid-item medium"
+          draggable="true"
+          data-project="athletic-wear"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Athletic Wear"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Athletic Wear</span>
+          </div>
+        </div>
+
+        <div
+          class="grid-item large"
+          draggable="true"
+          data-project="floral-design"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Floral Design"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Floral Design</span>
+          </div>
+        </div>
+
+        <div class="grid-item small" draggable="true" data-project="editorial">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Editorial"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Editorial</span>
+          </div>
+        </div>
+
+        <div
+          class="grid-item medium"
+          draggable="true"
+          data-project="brand-identity"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            alt="Brand Identity"
+          />
+          <div class="grid-item-overlay">
+            <span class="overlay-text">Brand Identity</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
