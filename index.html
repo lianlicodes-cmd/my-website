@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier L - Where Nature Meets Design</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@100;200;300;400;500;600&family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-dark: #0b0c0b;
+        --primary-light: #f7faf9;
+        --accent-blue: #4a90e2;
+        --text-dark: #2c2c2c;
+        --text-light: rgba(255, 255, 255, 0.9);
+        --overlay: rgba(11, 12, 11, 0.4);
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      .hero-section {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light) 0%,
+          #e8f4f8 100%
+        );
+        background-image: url("./assets/6 Ashburnham Grove Evening0168-19.jpg");
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--overlay);
+        z-index: 2;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        padding: 0 2rem;
+        animation: fadeInUp 1.2s ease-out;
+      }
+
+      .hero-title {
+        font-family: "Fraunces", serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 600;
+        color: var(--text-light);
+        margin-bottom: 0.2rem;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+
+      .hero-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1rem, 2.5vw, 1.4rem);
+        color: var(--text-light);
+        margin-bottom: 2.5rem;
+        font-weight: 350;
+        opacity: 0.8;
+        letter-spacing: 0.1em;
+      }
+
+      .cta-container {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 2.5rem;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        min-width: 160px;
+      }
+
+      .btn-primary {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+        box-shadow: 0 4px 20px rgba(247, 250, 249, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(247, 250, 249, 0.4);
+        background: #ffffff;
+      }
+
+      .btn-outline {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--text-light);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        font-size: 0.9rem;
+        padding: 0.8rem 2rem;
+        letter-spacing: 0.05em;
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.25);
+        color: var(--text-light);
+        transform: translateY(-2px);
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        animation: bounce 2s infinite;
+      }
+
+      .scroll-arrow {
+        width: 24px;
+        height: 24px;
+        border: 2px solid var(--text-light);
+        border-top: none;
+        border-left: none;
+        transform: rotate(45deg);
+        opacity: 0.7;
+      }
+
+      .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .floating-element {
+        position: absolute;
+        background: rgba(247, 250, 249, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-element:nth-child(1) {
+        width: 60px;
+        height: 60px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .floating-element:nth-child(2) {
+        width: 40px;
+        height: 40px;
+        top: 60%;
+        right: 15%;
+        animation-delay: 2s;
+      }
+
+      .floating-element:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        top: 30%;
+        right: 20%;
+        animation-delay: 4s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      /* Mobile Optimizations */
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 0 1.5rem;
+        }
+
+        .cta-container {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 280px;
+        }
+
+        .floating-elements {
+          display: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content {
+          padding: 0 1rem;
+        }
+
+        .hero-title {
+          margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+          margin-bottom: 2rem;
+        }
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        .hero-overlay {
+          background: rgba(11, 12, 11, 0.7);
+        }
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        .hero-content,
+        .scroll-indicator,
+        .floating-element {
+          animation: none;
+        }
+
+        .btn {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="floating-elements">
+          <div class="floating-element"></div>
+          <div class="floating-element"></div>
+          <div class="floating-element"></div>
+        </div>
+
+        <div class="hero-content">
+          <h1 class="hero-title">Atelier L</h1>
+          <p class="hero-subtitle">Where Nature Meets Design</p>
+
+          <div class="cta-container">
+            <a href="home.html" class="btn btn-outline">Enter</a>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <div class="scroll-arrow"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
