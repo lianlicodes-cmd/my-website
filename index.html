@@ -1,333 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atelier L - Where Nature Meets Design</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@100;200;300;400;500;600&family=Quicksand:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+ <head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Atelier L — UX/UI & Garden Photography</title>
 
-      :root {
-        --primary-dark: #0b0c0b;
-        --primary-light: #f7faf9;
-        --accent-blue: #4a90e2;
-        --text-dark: #2c2c2c;
-        --text-light: rgba(255, 255, 255, 0.9);
-        --overlay: rgba(11, 12, 11, 0.4);
-      }
+   <!-- Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link
+     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&family=Playfair+Display:wght@400;600&display=swap"
+     rel="stylesheet"
+   />
 
-      body {
-        font-family: "Inter", sans-serif;
-        line-height: 1.6;
-        color: var(--text-dark);
-        overflow-x: hidden;
-      }
+   <!-- Tailwind CDN -->
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+     tailwind.config = {
+       theme: {
+         extend: {
+           colors: {
+             background: "#ffffff",
+             text: "#0b0c0b",
+             muted: "#6b7280",
+             border: "#e6e6e6",
+             brand: {
+               DEFAULT: "#0b0c0b",
+               gold: "#fad02c",
+               forest: "#7ca648",
+             },
+           },
+           borderRadius: { xl: "16px" },
+           fontFamily: {
+             headline: ['"Playfair Display"', "serif"],
+             body: ['"Nunito Sans"', "sans-serif"],
+           },
+         },
+       },
+     };
+   </script>
 
-      .hero-section {
-        position: relative;
-        height: 100vh;
-        min-height: 600px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        overflow: hidden;
-      }
+   <style>
+     .font-headline { font-family: "Playfair Display", serif; }
+     .font-body { font-family: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
 
-      .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          var(--primary-light) 0%,
-          #e8f4f8 100%
-        );
-        background-image: url("./6 Ashburnham Grove Evening0168-19.jpg");
-        background-size: cover;
-        background-position: center;
-        z-index: 1;
-      }
+     /* === Full-bleed carousel === */
+     .carousel {
+       position: relative;
+       width: 100vw;
+       left: 50%;
+       right: 50%;
+       margin-left: -50vw;
+       margin-right: -50vw;
+       overflow: hidden;
+       margin-bottom: -1px;
+     }
+     :root { --header-h: 56px; }
+     .carousel__viewport { position: relative; height: calc(100dvh - var(--header-h) + 1px); }
+     @supports not (height: 1dvh) { .carousel__viewport { height: calc(100svh - var(--header-h) + 1px); } }
+     @supports not (height: 1svh) { .carousel__viewport { height: calc(100vh - var(--header-h) + 1px); } }
 
-      .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--overlay);
-        z-index: 2;
-      }
+     /* === Simple cross-fade === */
+     :root { --fade-dur: 200ms; }
+     .carousel__slide { position: absolute; inset: 0; opacity: 0; z-index: 1; transition: opacity var(--fade-dur) ease; }
+     .carousel__slide[aria-hidden="false"] { opacity: 1; z-index: 2; }
+     .carousel__img { width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; }
 
-      .hero-content {
-        position: relative;
-        z-index: 3;
-        max-width: 800px;
-        padding: 0 2rem;
-        animation: fadeInUp 1.2s ease-out;
-      }
+     .carousel__gradient {
+       position: absolute; inset-inline: 0; bottom: 0; height: 96px;
+       background: linear-gradient(to top, rgba(0,0,0,0.4), transparent); pointer-events: none;
+     }
+     .carousel__topFade {
+       position: absolute; inset-inline: 0; top: 0; height: 96px;
+       background: linear-gradient(to bottom, rgba(0,0,0,0.18), transparent);
+       pointer-events: none; z-index: 4;
+     }
+     @media (min-width: 768px) { .carousel__topFade { height: 120px; } }
+     @media (min-width: 1280px) { .carousel__topFade { height: 144px; } }
+     .carousel__vignette {
+       position: absolute; inset: 0;
+       background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.18) 100%);
+       pointer-events: none; z-index: 3;
+     }
 
-      .hero-title {
-        font-family: "Fraunces", serif;
-        font-size: clamp(3rem, 8vw, 6rem);
-        font-weight: 600;
-        color: var(--text-light);
-        margin-bottom: 0.2rem;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-      }
+     @media (prefers-reduced-motion: reduce) {
+       .transition, .transition-opacity, .transition-transform { transition: none !important; }
+       .carousel__slide, .carousel__img { transition: none !important; animation: none !important; }
+     }
+   </style>
 
-      .hero-subtitle {
-        font-family: "Inter", sans-serif;
-        font-size: clamp(1rem, 2.5vw, 1.4rem);
-        color: var(--text-light);
-        margin-bottom: 2.5rem;
-        font-weight: 350;
-        opacity: 0.8;
-        letter-spacing: 0.1em;
-      }
+   <!-- Brand/SEO -->
+   <link rel="canonical" href="https://atelierlian.com/" />
+   <meta property="og:site_name" content="Atelier L" />
+   <meta property="og:title" content="Atelier L — UX/UI & Garden Photography" />
+   <meta property="og:description" content="UI/UX design & garden photography by Lian Li." />
+   <meta property="og:url" content="https://atelierlian.com/" />
+   <meta property="og:type" content="website" />
+   <meta property="og:image" content="https://atelierlian.com/assets/social/og-image.jpg" />
+   <meta name="twitter:card" content="summary_large_image" />
+ </head>
 
-      .cta-container {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 2rem;
-      }
+ <body class="bg-background text-text font-body font-extralight antialiased">
+   <!-- Header -->
+   <header class="sticky top-0 z-30 w-full bg-white/80 backdrop-blur-sm supports-[backdrop-filter]:backdrop-blur">
+     <div class="w-full px-4 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] grid-rows-[auto_auto_auto] items-center gap-x-3 md:gap-x-5 gap-y-0 py-1.5 sm:py-2">
+       <!-- Search -->
+       <div class="row-start-1 col-start-1 justify-self-start flex items-center gap-2 w-full max-w-[clamp(12rem,42vw,22rem)] md:max-w-[clamp(12rem,36vw,20rem)] lg:max-w-[clamp(14rem,32vw,22rem)] min-w-0 mt-px sm:mt-[2px]">
+         <form id="site-search-form" action="browse-garden-photography.html" method="GET" class="relative flex-1">
+           <label for="site-search" class="sr-only">Search photos</label>
+           <input id="site-search" name="q" type="search" placeholder="Search photos…" class="w-full h-6 sm:h-7 rounded-full border border-border bg-white/80 backdrop-blur pl-7 sm:pl-8 pr-3 text-[12px] sm:text-[13px] leading-none placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/20" enterkeyhint="search" />
+           <button type="submit" class="absolute inset-y-0 left-1 my-auto h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-black text-white grid place-items-center hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-brand/20">
+             <svg viewBox="0 0 24 24" class="h-2 w-2 sm:h-[10px] sm:w-[10px]" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" />
+             </svg>
+             <span class="sr-only">Search</span>
+           </button>
+         </form>
+       </div>
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem 2.5rem;
-        font-family: "Inter", sans-serif;
-        font-size: 1rem;
-        font-weight: 500;
-        text-decoration: none;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        border: none;
-        min-width: 160px;
-      }
+       <!-- Title -->
+       <h1 class="row-start-2 sm:row-start-1 col-span-3 sm:col-span-1 sm:col-start-2 justify-self-center">
+         <a href="index.html" class="block font-headline font-light tracking-wide text-[17px] sm:text-xl md:text-2xl leading-none text-text">ATELIER L</a>
+       </h1>
 
-      .btn-primary {
-        background: var(--primary-light);
-        color: var(--primary-dark);
-        box-shadow: 0 4px 20px rgba(247, 250, 249, 0.3);
-      }
+       <!-- Subhead -->
+       <p class="row-start-3 sm:row-start-2 col-span-3 justify-self-center text-center mt-0 sm:-mt-1 leading-tight text-xs sm:text-sm text-brand max-w-[42rem] px-3">
+         <span class="sr-only">UX/UI design &amp; garden photography </span>by Lian Li.
+       </p>
 
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 25px rgba(247, 250, 249, 0.4);
-        background: #ffffff;
-      }
+       <!-- Menu button -->
+       <button id="menuBtn" class="row-start-1 sm:row-start-1 col-start-3 justify-self-end inline-flex items-center justify-center rounded-full p-2 text-brand hover:bg-brand/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/20" aria-label="Open menu" aria-controls="siteMenu" aria-expanded="false">
+         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+         </svg>
+       </button>
+     </div>
+   </header>
 
-      .btn-outline {
-        background: rgba(255, 255, 255, 0.15);
-        color: var(--text-light);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-        font-size: 0.9rem;
-        padding: 0.8rem 2rem;
-        letter-spacing: 0.05em;
-      }
+   <!-- Slide-out menu -->
+   <nav id="siteMenu" class="fixed top-0 right-0 z-50 h-full w-72 max-w-[80vw] bg-white shadow-xl translate-x-full transition-transform duration-150" aria-label="Site menu">
+     <div class="flex h-full flex-col">
+       <div class="flex items-center justify-between p-4 border-b border-border">
+         <span class="text-base text-brand">Menu</span>
+         <button id="menuClose" class="p-2 rounded-full text-brand hover:bg-brand/5" aria-label="Close menu">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+           </svg>
+         </button>
+       </div>
 
-      .btn-outline:hover {
-        background: rgba(255, 255, 255, 0.25);
-        color: var(--text-light);
-        transform: translateY(-2px);
-      }
+       <ul class="flex-grow overflow-y-auto px-4 py-5 space-y-2.5 text-[15px] leading-6">
+         <li><a href="/" class="block py-1.5 text-brand hover:opacity-80">Home</a></li>
+         <li><a href="explore-ui-ux-web-design.html" class="block py-1.5 text-brand hover:opacity-80">UI/UX Web Design</a></li>
 
-      .scroll-indicator {
-        position: absolute;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 3;
-        animation: bounce 2s infinite;
-      }
+         <!-- Photography disclosure -->
+         <li>
+           <button id="disclosureBtn" class="w-full flex items-center justify-between py-1.5 text-brand hover:opacity-80" aria-expanded="false" aria-controls="disclosurePanel">
+             <span>Photography</span>
+             <svg class="h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 011.04 1.08l-4.23 3.35a.75.75 0 01-.94 0L5.21 8.31a.75.75 0 01.02-1.1z" clip-rule="evenodd" />
+             </svg>
+           </button>
+           <div id="disclosurePanel" class="max-h-0 overflow-hidden transition-[max-height] duration-150 ease-in-out">
+             <ul class="pl-4 py-1 space-y-2 border-l border-brand/10">
+               <li><a href="gardens-magazine.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Garden</a></li>
+               <li><a href="landscapes.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Landscapes</a></li>
+               <li><a href="botanicals.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Botanicals</a></li>
+               <li><a href="paris-archives.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Paris Archives</a></li>
+             </ul>
+           </div>
+         </li>
 
-      .scroll-arrow {
-        width: 24px;
-        height: 24px;
-        border: 2px solid var(--text-light);
-        border-top: none;
-        border-left: none;
-        transform: rotate(45deg);
-        opacity: 0.7;
-      }
+         <li><a href="shop.html" class="block py-1.5 text-brand hover:opacity-80">Shop</a></li>
+         <li><a href="about.html" class="block py-1.5 text-brand hover:opacity-80">About</a></li>
+         <li><a href="contact.html" class="block py-1.5 text-brand hover:opacity-80">Contact</a></li>
+       </ul>
+     </div>
+   </nav>
 
-      .floating-elements {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        pointer-events: none;
-      }
+   <!-- Overlay -->
+   <div id="menuOverlay" class="fixed inset-0 z-40 bg-brand/50 opacity-0 pointer-events-none transition-opacity duration-150" aria-hidden="true"></div>
 
-      .floating-element {
-        position: absolute;
-        background: rgba(247, 250, 249, 0.1);
-        border-radius: 50%;
-        animation: float 6s ease-in-out infinite;
-      }
+   <!-- ===== Full-bleed Auto Carousel ===== -->
+   <main id="photography" class="carousel">
+     <div id="carouselViewport" class="carousel__viewport" aria-roledescription="carousel" aria-label="Featured photographs" tabindex="0">
+       <div class="carousel__topFade"></div>
+       <div class="carousel__vignette"></div>
 
-      .floating-element:nth-child(1) {
-        width: 60px;
-        height: 60px;
-        top: 20%;
-        left: 10%;
-        animation-delay: 0s;
-      }
+       <!-- CTA overlay -->
+       <div class="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+         <div class="pointer-events-auto flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
+           <a href="explore-ui-ux-web-design.html" class="inline-flex items-center justify-center whitespace-nowrap rounded-full h-9 sm:h-10 px-4.5 sm:px-5 text-sm sm:text-[15px] font-medium leading-none border-0 ring-0 bg-brand-forest/70 supports-[backdrop-filter]:bg-brand-forest/25 backdrop-blur-md text-white [text-shadow:0_1px_0_rgba(0,0,0,0.55)] hover:bg-brand-forest/80 supports-[backdrop-filter]:hover:bg-brand-forest/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 w-[88vw] max-w-[360px] sm:w-auto">
+             Explore UI/UX Web Design
+           </a>
+           <a href="browse-garden-photography.html" class="inline-flex items-center justify-center whitespace-nowrap rounded-full h-7 sm:h-8 px-4.5 sm:px-5 text-sm sm:text-[15px] font-medium leading-none border ring-1 bg-white/95 text-brand border-white ring-brand/5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 w-[88vw] max-w-[360px] sm:w-auto">
+             Browse Garden Photography
+           </a>
+         </div>
+       </div>
 
-      .floating-element:nth-child(2) {
-        width: 40px;
-        height: 40px;
-        top: 60%;
-        right: 15%;
-        animation-delay: 2s;
-      }
+       <!-- Controls -->
+       <div class="pointer-events-none absolute inset-0 flex items-center justify-between px-2 md:px-4">
+         <button id="prevBtn" type="button" aria-label="Previous" class="pointer-events-auto hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/40 text-white backdrop-blur hover:bg-brand/60 focus:outline-none focus-visible:ring focus-visible:ring-white/60">‹</button>
+         <button id="nextBtn" type="button" aria-label="Next" class="pointer-events-auto hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/40 text-white backdrop-blur hover:bg-brand/60 focus:outline-none focus-visible:ring focus-visible:ring-white/60">›</button>
+       </div>
 
-      .floating-element:nth-child(3) {
-        width: 80px;
-        height: 80px;
-        top: 30%;
-        right: 20%;
-        animation-delay: 4s;
-      }
+       <!-- Dots + Play/Pause -->
+       <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
+         <button id="ppBtn" aria-label="Pause" class="h-7 w-7 rounded-full bg-brand/40 text-white backdrop-blur hover:bg-brand/60 focus:outline-none focus-visible:ring focus-visible:ring-white/60">⏸</button>
+         <div id="dots" class="flex gap-1"></div>
+       </div>
+     </div>
 
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(60px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+     <div class="absolute bottom-4 right-4">
+       <button aria-label="Image information" class="h-9 w-9 rounded-full bg-white/90 text-brand shadow hover:bg-white"></button>
+     </div>
+   </main>
 
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateX(-50%) translateY(0);
-        }
-        40% {
-          transform: translateX(-50%) translateY(-10px);
-        }
-        60% {
-          transform: translateX(-50%) translateY(-5px);
-        }
-      }
+   <!-- Footer -->
+   <footer class="-mt-px bg-white [column-span:all] clear-both" aria-label="Site footer">
+     <div class="w-full py-3 sm:py-4">
+       <div class="grid grid-cols-1 gap-1.5 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-1 sm:gap-y-0 sm:items-center">
+         <nav class="justify-self-center sm:col-start-3 sm:row-start-1 sm:justify-self-end sm:pr-2 md:pr-2 flex items-center gap-1" aria-label="Social links">
+           <a href="https://www.instagram.com/lianli_atelierl/" target="_blank" rel="noopener" aria-label="Instagram" class="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full text-brand hover:bg-brand/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 transition">
+             <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+               <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+               <circle cx="12" cy="12" r="4.5"></circle>
+               <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
+             </svg>
+           </a>
+           <a href="https://www.linkedin.com/in/lianli23/" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full text-brand hover:bg-brand/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 transition">
+             <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+               <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+               <line x1="7.2" y1="10" x2="7.2" y2="18" stroke-linecap="round"></line>
+               <circle cx="7.2" cy="7" r="1.1" fill="currentColor" stroke="none"></circle>
+               <path d="M11 18v-5c0-1.5 1.1-2.5 2.6-2.5S16.2 11 16.2 13v5" stroke-linecap="round"></path>
+             </svg>
+           </a>
+         </nav>
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(180deg);
-        }
-      }
+         <div class="justify-self-center sm:col-start-2 sm:row-start-1">
+           <div class="flex items-center justify-center gap-2">
+             <img src="./logo.png" alt="Atelier L logo" class="h-5 w-auto select-none" />
+             <p class="text-center text-[11.5px] sm:text-xs font-extralight text-brand leading-none">
+               &copy; <span id="year"></span> Atelier L by Lian Li. All rights reserved. ·
+               <a href="t-and-c.html" class="hover:underline">Terms</a> ·
+               <a href="privacy-policy.html" class="hover:underline">Privacy</a>
+             </p>
+           </div>
+         </div>
 
-      /* Mobile Optimizations */
-      @media (max-width: 768px) {
-        .hero-content {
-          padding: 0 1.5rem;
-        }
+         <div class="hidden sm:block sm:col-start-1 sm:row-start-1"></div>
+       </div>
+     </div>
+   </footer>
 
-        .cta-container {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-        }
+   <!-- JS: menu + carousel + disclosure -->
+   <script>
+     (() => {
+       // Utilities
+       const $ = (sel) => document.querySelector(sel);
+       const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        .btn {
-          width: 100%;
-          max-width: 280px;
-        }
+       // Sync --header-h
+       const headerEl = document.querySelector("header");
+       function setHeaderHeightVar() {
+         const h = headerEl?.offsetHeight || 56;
+         document.documentElement.style.setProperty("--header-h", h + "px");
+       }
+       setHeaderHeightVar();
+       window.addEventListener("resize", setHeaderHeightVar);
+       if (document.fonts && document.fonts.ready) {
+         document.fonts.ready.then(setHeaderHeightVar).catch(() => {});
+       }
 
-        .floating-elements {
-          display: none;
-        }
-      }
+       // Elements
+       const btn = $("#menuBtn");
+       const menu = $("#siteMenu");
+       const closeBtn = $("#menuClose");
+       const overlay = $("#menuOverlay");
+       const disBtn = $("#disclosureBtn");
+       const panel = $("#disclosurePanel");
 
-      @media (max-width: 480px) {
-        .hero-content {
-          padding: 0 1rem;
-        }
+       // Footer year
+       const yearEl = $("#year");
+       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        .hero-title {
-          margin-bottom: 0.5rem;
-        }
+       // Focus trap
+       let prevFocused = null;
+       const focusableSel = [
+         "a[href]","button:not([disabled])","input:not([disabled])",
+         "select:not([disabled])","textarea:not([disabled])",'[tabindex]:not([tabindex="-1"])'
+       ].join(",");
+       function trapFocus(e) {
+         if (!menu || menu.classList.contains("translate-x-full")) return;
+         const focusables = $$("#siteMenu " + focusableSel).filter(el => el.offsetParent !== null);
+         if (!focusables.length) return;
+         const first = focusables[0], last = focusables[focusables.length - 1];
+         if (e.key === "Tab") {
+           if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+           else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+         }
+       }
 
-        .hero-subtitle {
-          margin-bottom: 2rem;
-        }
-      }
+       function openMenu() {
+         if (!menu || !overlay) return;
+         prevFocused = document.activeElement;
+         menu.classList.remove("translate-x-full");
+         overlay.classList.remove("opacity-0", "pointer-events-none");
+         overlay.classList.add("opacity-100");
+         document.body.classList.add("overflow-hidden");
+         btn?.setAttribute("aria-expanded", "true");
+         menu.querySelector(focusableSel)?.focus();
+         if (reduceMotion) { menu.style.transition = "none"; overlay.style.transition = "none"; }
+       }
+       function closeMenu() {
+         if (!menu || !overlay) return;
+         menu.classList.add("translate-x-full");
+         overlay.classList.add("opacity-0", "pointer-events-none");
+         overlay.classList.remove("opacity-100");
+         document.body.classList.remove("overflow-hidden");
+         btn?.setAttribute("aria-expanded", "false");
+         if (prevFocused && typeof prevFocused.focus === "function") prevFocused.focus();
+         if (reduceMotion) { menu.style.transition = ""; overlay.style.transition = ""; }
+       }
 
-      /* High contrast mode support */
-      @media (prefers-contrast: high) {
-        .hero-overlay {
-          background: rgba(11, 12, 11, 0.7);
-        }
-      }
+       btn?.addEventListener("click", openMenu);
+       closeBtn?.addEventListener("click", closeMenu);
+       overlay?.addEventListener("click", closeMenu);
+       document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); if (e.key === "Tab") trapFocus(e); });
 
-      /* Reduced motion support */
-      @media (prefers-reduced-motion: reduce) {
-        .hero-content,
-        .scroll-indicator,
-        .floating-element {
-          animation: none;
-        }
+       // Disclosure
+       disBtn?.addEventListener("click", () => {
+         const expanded = disBtn.getAttribute("aria-expanded") === "true";
+         disBtn.setAttribute("aria-expanded", String(!expanded));
+         disBtn.querySelector("svg")?.classList.toggle("rotate-180", !expanded);
+         panel.style.maxHeight = !expanded ? panel.scrollHeight + "px" : "0px";
+       });
+       window.addEventListener("resize", () => {
+         if (disBtn?.getAttribute("aria-expanded") === "true") {
+           panel.style.maxHeight = panel.scrollHeight + "px";
+         }
+       });
+       if (reduceMotion) {
+         panel.style.transition = "none";
+         disBtn?.querySelector("svg")?.classList.remove("transition-transform");
+       }
 
-        .btn {
-          transition: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section class="hero-section">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
+       // ===== Carousel =====
+       const viewport = $("#carouselViewport");
+       const nextBtn = $("#nextBtn");
+       const prevBtn = $("#prevBtn");
+       const ppBtn = $("#ppBtn");
+       const dotsEl = $("#dots");
 
-        <div class="floating-elements">
-          <div class="floating-element"></div>
-          <div class="floating-element"></div>
-          <div class="floating-element"></div>
-        </div>
+       const slides = [
+         {
+           href: "garden.html?lightbox=0",
+           src: "monet-house-garden-giverny-floral-landscape-art-1-2.jpg",
+           alt: "Monet’s House Garden in Giverny — floral landscape",
+         },
+         {
+           href: "explore-ui-ux-web-design.html",
+           src: "sheffield-ui-ux-web-designer-photographer-garden-office-contemporary-design.jpg",
+           alt: "Sheffield UI/UX Web Designer — Garden Office Contemporary Design",
+         },
+         {
+           href: "landscapes.html?lightbox=0",
+           src: "taroudant-paradise-gardens-40m-corridor-swimming-pool-1.jpg",
+           alt: "Taroudant — 40-metre corridor swimming pool, Paradise Gardens",
+         },
+         {
+           href: "shop.html",
+           src: "sheffield-ui-ux-web-designer-photographer-pollinator-garden-plants.jpg",
+           alt: "Sheffield pollinator garden — UI/UX web designer",
+         },
+       ];
 
-        <div class="hero-content">
-          <h1 class="hero-title">Atelier L</h1>
-          <p class="hero-subtitle">Where Nature Meets Design</p>
+       // Preload second slide
+       const preload = new Image(); preload.decoding = "async"; preload.src = (slides[1] && slides[1].src) || "";
 
-          <div class="cta-container">
-            <a href="home.html" class="btn btn-outline">Enter</a>
-          </div>
-        </div>
+       let idx = 0, paused = false;
+       const autoplayMs = 2400;
+       let timer = null;
 
-        <div class="scroll-indicator">
-          <div class="scroll-arrow"></div>
-        </div>
-      </section>
-    </main>
+       function renderSlides() {
+         slides.forEach((s, i) => {
+           const fig = document.createElement("figure");
+           fig.className = "carousel__slide";
+           fig.setAttribute("aria-hidden", i === idx ? "false" : "true");
+
+           const link = document.createElement("a");
+           link.href = s.href; link.className = "block w-full h-full";
+           link.setAttribute("aria-label", s.alt || "Open slide");
+
+           const img = document.createElement("img");
+           img.className = "carousel__img";
+           img.src = s.src; img.alt = s.alt || "";
+           if (i === 0) { img.fetchPriority = "high"; }
+           else if (i === 1) { img.decoding = "async"; }
+           else { img.loading = "lazy"; img.decoding = "async"; }
+
+           link.appendChild(img); fig.appendChild(link);
+           const grad = document.createElement("div"); grad.className = "carousel__gradient"; fig.appendChild(grad);
+           const cap = document.createElement("figcaption"); cap.className = "absolute bottom-6 left-6 text-white/95 text-sm md:text-base drop-shadow"; cap.textContent = s.caption || ""; fig.appendChild(cap);
+
+           viewport.appendChild(fig);
+
+           const dot = document.createElement("button");
+           dot.className = "h-2.5 w-2.5 rounded-full " + (i === idx ? "bg-white" : "bg-white/50 hover:bg-white/80");
+           dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+           dot.addEventListener("click", () => goTo(i));
+           dotsEl.appendChild(dot);
+         });
+       }
+
+       function updateDots() {
+         $$("#dots button").forEach((b, i) => {
+           b.className = "h-2.5 w-2.5 rounded-full " + (i === idx ? "bg-white" : "bg-white/50 hover:bg-white/80");
+         });
+       }
+
+       function setActive(newIdx) {
+         const slidesEls = $$(".carousel__slide");
+         if (!slidesEls.length || newIdx === idx) return;
+         slidesEls[idx]?.setAttribute("aria-hidden", "true");
+         idx = newIdx;
+         slidesEls[idx]?.setAttribute("aria-hidden", "false");
+         updateDots();
+       }
+
+       function next() { setActive((idx + 1) % slides.length); }
+       function prev() { setActive((idx - 1 + slides.length) % slides.length); }
+       function goTo(i) { setActive(i); }
+
+       function play() {
+         if (timer) clearInterval(timer);
+         if (!paused && !reduceMotion) timer = setInterval(next, autoplayMs);
+       }
+
+       // init
+       renderSlides(); setActive(0);
+       if (!reduceMotion) { setTimeout(() => { next(); play(); }, 400); }
+       else { paused = true; if (ppBtn) { ppBtn.textContent = "▶"; ppBtn.setAttribute("aria-label", "Play"); } }
+
+       // Controls
+       nextBtn?.addEventListener("click", () => { next(); play(); });
+       prevBtn?.addEventListener("click", () => { prev(); play(); });
+       ppBtn?.addEventListener("click", () => {
+         paused = !paused;
+         ppBtn.textContent = paused ? "▶" : "⏸";
+         ppBtn.setAttribute("aria-label", paused ? "Play" : "Pause");
+         play();
+       });
+
+       // Autoplay behavior
+       viewport.addEventListener("focusin", () => { paused = true; if (ppBtn) ppBtn.textContent = "▶"; play(); });
+       viewport.addEventListener("focusout", () => { paused = false; if (ppBtn) ppBtn.textContent = "⏸"; play(); });
+       document.addEventListener("visibilitychange", () => { paused = document.hidden || paused; play(); });
+
+       // Keyboard
+       window.addEventListener("keydown", (e) => {
+         if (e.key === "ArrowRight") { next(); play(); }
+         if (e.key === "ArrowLeft") { prev(); play(); }
+         if (e.code === "Space") { e.preventDefault(); ppBtn?.click(); }
+       });
+
+       // Swipe
+       let startX = null;
+       viewport.addEventListener("pointerdown", (e) => { startX = e.clientX; });
+       viewport.addEventListener("pointerup", (e) => {
+         if (startX == null) return;
+         const dx = e.clientX - startX; startX = null;
+         const threshold = 40;
+         if (dx > threshold) { prev(); play(); }
+         if (dx < -threshold) { next(); play(); }
+       });
+     })();
+   </script>
+
+   <!-- Trim search query before submit -->
+   <script>
+     (function () {
+       var form = document.getElementById("site-search-form");
+       if (!form) return;
+       form.addEventListener("submit", function () {
+         var input = form.querySelector('input[name="q"]');
+         if (input) input.value = (input.value || "").trim();
+       });
+     })();
+   </script>
+ </body>
+</html>
+
   </body>
 </html>
