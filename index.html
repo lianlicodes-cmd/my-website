@@ -1,523 +1,2302 @@
+<!-- /index.html -->
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <title>Atelier L — UX/UI & Garden Photography</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <title>
+      Web Design for Garden Designers, Artists and Creative Studios | L by Lian
+    </title>
 
+    <!-- Canonical -->
+    <link rel="canonical" href="https://lbylian.com/" />
 
-   <!-- Fonts -->
-   <link rel="preconnect" href="https://fonts.googleapis.com" />
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-   <link
-     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&family=Playfair+Display:wght@400;600&display=swap"
-     rel="stylesheet"
-   />
+    <!-- Meta description -->
+    <meta
+      name="description"
+      content="L by Lian designs bespoke UX/UI websites for creative professionals, with clear structure, accessibility, performance, image SEO, and selected garden photography."
+    />
 
-   <!-- Tailwind CDN -->
-   <script src="https://cdn.tailwindcss.com"></script>
-   <script>
-     tailwind.config = {
-       theme: {
-         extend: {
-           colors: {
-             background: "#ffffff",
-             text: "#0b0c0b",
-             muted: "#6b7280",
-             border: "#e6e6e6",
-             brand: {
-               DEFAULT: "#0b0c0b",
-               gold: "#fad02c",
-               forest: "#7ca648" /* keep tint as-is */,
-             },
-           },
-           borderRadius: { xl: "16px" },
-           fontFamily: {
-             headline: ['"Playfair Display"', "serif"],
-             body: ['"Nunito Sans"', "sans-serif"],
-           },
-         },
-       },
-     };
-   </script>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="L by Lian" />
+    <meta property="og:locale" content="en_GB" />
 
-   <style>
-     .font-headline { font-family: "Playfair Display", serif; }
-     .font-body { font-family: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    <meta
+      property="og:title"
+      content="Web Design for Creative Projects · L by Lian"
+    />
 
-     /* === Full-bleed carousel === */
-     .carousel {
-       position: relative;
-       width: 100vw;
-       left: 50%;
-       right: 50%;
-       margin-left: -50vw;
-       margin-right: -50vw;
-       overflow: hidden;
-       margin-bottom: -1px;
-     }
-     :root { --header-h: 56px; }
-     .carousel__viewport { position: relative; height: calc(100dvh - var(--header-h) + 1px); }
-     @supports not (height: 1dvh) { .carousel__viewport { height: calc(100svh - var(--header-h) + 1px); } }
-     @supports not (height: 1svh) { .carousel__viewport { height: calc(100vh - var(--header-h) + 1px); } }
+    <meta
+      property="og:description"
+      content="Bespoke web design with clear structure, strong performance and accessibility - plus selected garden photography and image preparation."
+    />
 
-     /* === Simple cross-fade === */
-     :root { --fade-dur: 200ms; }
-     .carousel__slide { position: absolute; inset: 0; opacity: 0; z-index: 1; transition: opacity var(--fade-dur) ease; }
-     .carousel__slide[aria-hidden="false"] { opacity: 1; z-index: 2; }
-     .carousel__img { width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; }
+    <meta property="og:url" content="https://lbylian.com/" />
 
-     .carousel__gradient {
-       position: absolute; inset-inline: 0; bottom: 0; height: 96px;
-       background: linear-gradient(to top, rgba(0,0,0,0.4), transparent); pointer-events: none;
-     }
-     .carousel__topFade {
-       position: absolute; inset-inline: 0; top: 0; height: 96px;
-       background: linear-gradient(to bottom, rgba(0,0,0,0.18), transparent);
-       pointer-events: none; z-index: 4;
-     }
-     @media (min-width: 768px) { .carousel__topFade { height: 120px; } }
-     @media (min-width: 1280px) { .carousel__topFade { height: 144px; } }
-     .carousel__vignette {
-       position: absolute; inset: 0;
-       background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.18) 100%);
-       pointer-events: none; z-index: 3;
-     }
+    <meta
+      property="og:image"
+      content="https://lbylian.com/l-by-lian-web-design-garden-photography-preview.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="L by Lian web design and garden photography portfolio"
+    />
 
-     @media (prefers-reduced-motion: reduce) {
-       .transition, .transition-opacity, .transition-transform { transition: none !important; }
-       .carousel__slide { transition: none !important; }
-       .carousel__img { transition: none !important; animation: none !important; }
-     }
-   </style>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://lbylian.com/l-by-lian-web-design-garden-photography-preview.jpg"
+    />
 
-   <!-- Brand/SEO -->
-   <link rel="canonical" href="https://atelierlian.com/" />
-   <meta property="og:site_name" content="Atelier L" />
-   <meta property="og:title" content="Atelier L — UX/UI & Garden Photography" />
-   <meta property="og:description" content="UI/UX design & garden photography by Lian Li." />
-   <meta property="og:url" content="https://atelierlian.com/" />
-   <meta property="og:type" content="website" />
-   <meta property="og:image" content="https://atelierlian.com/assets/social/og-image.jpg" />
-   <meta name="twitter:card" content="summary_large_image" />
- </head>
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lbylian" />
+    <meta name="twitter:creator" content="@lbylian" />
+    <meta
+      name="twitter:title"
+      content="Web Design for Creative Projects · L by Lian"
+    />
+    <meta
+      name="twitter:description"
+      content="Bespoke web design with clear structure, strong performance and accessibility — plus selected garden photography and image preparation."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/sheffield-ui-ux-web-designer-photographer-garden-urban-oasis.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Soft summer light over a tranquil urban garden photographed by L by Lian."
+    />
 
- <body class="bg-background text-text font-body font-extralight antialiased">
-   <!-- Header (slimmer, mobile-safe) -->
-   <header class="sticky top-0 z-30 w-full bg-white/80 backdrop-blur-sm supports-[backdrop-filter]:backdrop-blur">
-     <div class="w-full px-4 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] grid-rows-[auto_auto_auto] items-center gap-x-3 md:gap-x-5 gap-y-0 py-1.5 sm:py-2">
-       <!-- Left: search -->
-       <div class="row-start-1 col-start-1 justify-self-start flex items-center gap-2 w-full max-w-[clamp(12rem,42vw,22rem)] md:max-w-[clamp(12rem,36vw,20rem)] lg:max-w-[clamp(14rem,32vw,22rem)] min-w-0 mt-px sm:mt-[2px]">
-         <form id="site-search-form" action="browse-garden-photography.html" method="GET" class="relative flex-1">
-           <label for="site-search" class="sr-only">Search photos</label>
-           <input id="site-search" name="q" type="search" placeholder="Search photos…" class="w-full h-6 sm:h-7 rounded-full border border-border bg-white/80 backdrop-blur pl-7 sm:pl-8 pr-3 text-[12px] sm:text-[13px] leading-none placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-brand/20" enterkeyhint="search" />
-           <button type="submit" class="absolute inset-y-0 left-1 my-auto h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-black text-white grid place-items-center hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-brand/20">
-             <svg viewBox="0 0 24 24" class="h-2 w-2 sm:h-[10px] sm:w-[10px]" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" />
-             </svg>
-             <span class="sr-only">Search</span>
-           </button>
-         </form>
-       </div>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-       <!-- Center: Title -->
-       <h1 class="row-start-2 sm:row-start-1 col-span-3 sm:col-span-1 sm:col-start-2 justify-self-center">
-         <a href="index.html" class="block font-headline font-light tracking-wide text-[17px] sm:text-xl md:text-2xl leading-none text-text">ATELIER L</a>
-       </h1>
+    <meta name="theme-color" content="#bff47b" />
 
-       <!-- Subhead -->
-       <p class="row-start-3 sm:row-start-2 col-span-3 justify-self-center text-center mt-0 sm:-mt-1 leading-tight text-xs sm:text-sm text-brand max-w-[42rem] px-3">
-         <span class="sr-only">UX/UI design &amp; garden photography </span>by Lian Li.
-       </p>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-       <!-- Right: Menu button -->
-       <button id="menuBtn" class="row-start-1 sm:row-start-1 col-start-3 justify-self-end inline-flex items-center justify-center rounded-full p-2 text-brand hover:bg-brand/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/20" aria-label="Open menu" aria-controls="siteMenu" aria-expanded="false">
-         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-           <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-         </svg>
-       </button>
-     </div>
-   </header>
+    <!-- Preload hero image (LCP) -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/portfolio-images/digital_design.jpg"
+    />
 
-   <!-- Slide-out menu -->
-   <nav id="siteMenu" class="fixed top-0 right-0 z-50 h-full w-72 max-w-[80vw] bg-white shadow-xl translate-x-full transition-transform duration-150" aria-label="Site menu">
-     <div class="flex h-full flex-col">
-       <div class="flex items-center justify-between p-4 border-b border-border">
-         <span class="text-base text-brand">Menu</span>
-         <button id="menuClose" class="p-2 rounded-full text-brand hover:bg-brand/5" aria-label="Close menu">
-           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-           </svg>
-         </button>
-       </div>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                black: "#010101",
+                carrara: "#f1f2ec",
+                sulu: "#bff47b",
+                gray: "#444443",
+                dust: "#949492",
+                accent: "#05e0e9",
+                pink: "#ff1fa9",
+              },
+            },
+            fontFamily: {
+              sans: ['"Syne"', "system-ui", "sans-serif"],
+              display: ['"Syne"'],
+              serif: ["serif"],
+            },
+            borderRadius: { xl: "1.25rem", "2xl": "1.5rem" },
+          },
+        },
+      };
+    </script>
 
-       <ul class="flex-grow overflow-y-auto px-4 py-5 space-y-2.5 text-[15px] leading-6">
-         <li><a href="/" class="block py-1.5 text-brand hover:opacity-80">Home</a></li>
-         <li><a href="explore-ui-ux-web-design.html" class="block py-1.5 text-brand hover:opacity-80">UI/UX Web Design</a></li>
+    <style>
+      :root {
+        --frame: 2mm;
+      }
 
-         <!-- Photography disclosure -->
-         <li>
-           <button id="disclosureBtn" class="w-full flex items-center justify-between py-1.5 text-brand hover:opacity-80" aria-expanded="false" aria-controls="disclosurePanel">
-             <span>Photography</span>
-             <svg class="h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 011.04 1.08l-4.23 3.35a.75.75 0 01-.94 0L5.21 8.31a.75.75 0 01.02-1.1z" clip-rule="evenodd" />
-             </svg>
-           </button>
-           <div id="disclosurePanel" class="max-h-0 overflow-hidden transition-[max-height] duration-150 ease-in-out">
-             <ul class="pl-4 py-1 space-y-2 border-l border-brand/10">
-               <li><a href="gardens-magazine.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Garden</a></li>
-               <li><a href="landscapes.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Landscapes</a></li>
-               <li><a href="botanicals.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Botanicals</a></li>
-               <li><a href="paris-archives.html?lightbox=0" class="block py-1.5 text-brand hover:opacity-80">Paris Archives</a></li>
-             </ul>
-           </div>
-         </li>
+      .font-hand {
+        font-family: "Syne", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        font-synthesis: none;
+      }
 
-         <li><a href="shop.html" class="block py-1.5 text-brand hover:opacity-80">Shop</a></li>
-         <li><a href="about.html" class="block py-1.5 text-brand hover:opacity-80">About</a></li>
-         <li><a href="contact.html" class="block py-1.5 text-brand hover:opacity-80">Contact</a></li>
-       </ul>
-     </div>
-   </nav>
+      .rule-squares {
+        --sq: 1.5mm;
+        --rule: #bff47b;
+        position: relative;
+        width: 100%;
+        height: var(--sq);
+      }
 
-   <!-- Overlay -->
-   <div id="menuOverlay" class="fixed inset-0 z-40 bg-brand/50 opacity-0 pointer-events-none transition-opacity duration-150" aria-hidden="true"></div>
+      .rule-squares::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          90deg,
+          var(--rule) 0 calc(var(--sq)),
+          transparent calc(var(--sq)) calc(var(--sq) * 2)
+        );
+        pointer-events: none;
+      }
 
-   <!-- ===== Full-bleed Auto Carousel (with centered CTA overlay) ===== -->
-   <main id="photography" class="carousel">
-     <div id="carouselViewport" class="carousel__viewport" aria-roledescription="carousel" aria-label="Featured photographs" tabindex="0">
-       <!-- Top fade + vignette -->
-       <div class="carousel__topFade"></div>
-       <div class="carousel__vignette"></div>
+      @media (min-width: 1024px) {
+        .rule-squares {
+          --sq: 1.95mm;
+        }
+      }
 
-       <!-- Centered CTA overlay -->
-       <div class="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
-         <div class="pointer-events-auto flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
-           <a href="explore-ui-ux-web-design.html" class="inline-flex items-center justify-center whitespace-nowrap rounded-full h-9 sm:h-10 px-4.5 sm:px-5 text-sm sm:text-[15px] font-medium leading-none border-0 ring-0 bg-brand-forest/70 supports-[backdrop-filter]:bg-brand-forest/25 backdrop-blur-md text-white [text-shadow:0_1px_0_rgba(0,0,0,0.55)] hover:bg-brand-forest/80 supports-[backdrop-filter]:hover:bg-brand-forest/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 w-[88vw] max-w-[360px] sm:w-auto">
-             Explore UI/UX Web Design
-           </a>
-           <a href="browse-garden-photography.html" class="inline-flex items-center justify-center whitespace-nowrap rounded-full h-7 sm:h-8 px-4.5 sm:px-5 text-sm sm:text-[15px] font-medium leading-none border ring-1 bg-white/95 text-brand border-white ring-brand/5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 w-[88vw] max-w-[360px] sm:w-auto">
-             Browse Garden Photography
-           </a>
-         </div>
-       </div>
+      .poster {
+        font-size: clamp(2.25rem, 7.5vw, 5rem);
+        line-height: 1.1;
+      }
 
-       <!-- Controls -->
-       <div class="pointer-events-none absolute inset-0 flex items-center justify-between px-2 md:px-4">
-         <button id="prevBtn" type="button" aria-label="Previous" class="pointer-events-auto hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/40 text-white backdrop-blur hover:bg-brand/60 focus:outline-none focus-visible:ring focus-visible:ring-white/60">‹</button>
-         <button id="nextBtn" type="button" aria-label="Next" class="pointer-events-auto hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand/40 text-white backdrop-blur hover:bg-brand/60 focus:outline-none focus-visible:ring focus-visible:ring-white/60">›</button>
-       </div>
+      .edge-x {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      @media (min-width: 640px) {
+        .edge-x {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .edge-x {
+          padding-left: 1cm;
+          padding-right: 1cm;
+        }
+      }
 
-       <!-- Dots + Play/Pause -->
-       <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
-         <button id="ppBtn" aria-label="Pause" class="h-7 w-7 rounded-full bg-brand/40 text-white backdrop-blur hover:bg-brand/60 focus:outline-none focus-visible:ring focus-visible:ring-white/60">⏸</button>
-         <div id="dots" class="flex gap-1"></div>
-       </div>
-     </div>
+      .wrap {
+        max-width: 90rem;
+      }
+      @media (min-width: 1280px) {
+        .wrap {
+          max-width: 100rem;
+        }
+      }
+      @media (min-width: 1536px) {
+        .wrap {
+          max-width: 112rem;
+        }
+      }
 
-     <!-- Optional info button -->
-     <div class="absolute bottom-4 right-4">
-       <button aria-label="Image information" class="h-9 w-9 rounded-full bg-white/90 text-brand shadow hover:bg-white"></button>
-     </div>
-   </main>
+      .font-headline {
+        font-family: "Syne", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
 
-   <!-- Footer (slimmer) -->
-   <footer class="-mt-px bg-white [column-span:all] clear-both" aria-label="Site footer">
-     <div class="w-full py-3 sm:py-4">
-       <div class="grid grid-cols-1 gap-1.5 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-1 sm:gap-y-0 sm:items-center">
-         <nav class="justify-self-center sm:col-start-3 sm:row-start-1 sm:justify-self-end sm:pr-2 md:pr-2 flex items-center gap-1" aria-label="Social links">
-           <!-- Instagram -->
-           <a href="https://www.instagram.com/lianli_atelierl/" target="_blank" rel="noopener" aria-label="Instagram" class="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full text-brand hover:bg-brand/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 transition">
-             <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-               <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-               <circle cx="12" cy="12" r="4.5"></circle>
-               <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
-             </svg>
-           </a>
+      .cta-triangle {
+        margin-left: 1.1rem;
+        display: inline-block;
+        width: clamp(2.8rem, 7vw, 3.6rem);
+        height: clamp(2.8rem, 7vw, 3.6rem);
+      }
+      .cta-triangle svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
 
-           <!-- LinkedIn -->
-           <a href="https://www.linkedin.com/in/lianli23/" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full text-brand hover:bg-brand/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 transition">
-             <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-               <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-               <line x1="7.2" y1="10" x2="7.2" y2="18" stroke-linecap="round"></line>
-               <circle cx="7.2" cy="7" r="1.1" fill="currentColor" stroke="none"></circle>
-               <path d="M11 18v-5c0-1.5 1.1-2.5 2.6-2.5S16.2 11 16.2 13v5" stroke-linecap="round"></path>
-             </svg>
-           </a>
-         </nav>
+      /* Fix: .corner was used but undefined (dead class). Keep it harmless but purposeful. */
+      .corner {
+        display: inline-block;
+      }
 
-         <div class="justify-self-center sm:col-start-2 sm:row-start-1">
-           <div class="flex items-center justify-center gap-2">
-             <img src="./assets/logo.png" alt="Atelier L logo" class="h-5 w-auto select-none" />
-             <p class="text-center text-[11.5px] sm:text-xs font-extralight text-brand leading-none">
-               &copy; <span id="year"></span> Atelier L by Lian Li. All rights
-               reserved. · <a href="t-and-c.html" class="hover:underline">Terms</a> ·
-               <a href="privacy-policy.html" class="hover:underline">Privacy</a>
-             </p>
-           </div>
-         </div>
+      @media (prefers-reduced-motion: reduce) {
+        .group:hover .group-hover\:translate-y-0,
+        .group:focus-within .group-focus-within\:translate-y-0,
+        .group:active .group-active\:translate-y-0,
+        .group:hover .group-hover\:-translate-y-full,
+        .group:focus-within .group-focus-within\:-translate-y-full,
+        .group:active .group-active\:-translate-y-full {
+          transform: none !important;
+          transition: none !important;
+        }
+      }
 
-         <div class="hidden sm:block sm:col-start-1 sm:row-start-1"></div>
-       </div>
-     </div>
-   </footer>
+      .dot-grid {
+        background: radial-gradient(#949492 1px, transparent 1px) 0 0/12px 12px;
+        opacity: 0.35;
+      }
+      .phone {
+        border-radius: 28px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35),
+          0 8px 20px rgba(0, 0, 0, 0.22),
+          inset 0 0 0 2px rgba(255, 255, 255, 0.06);
+        background: #111;
+        overflow: hidden;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-animates * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
 
-   <!-- JS: menu + carousel + disclosure -->
-   <script>
-     (() => {
-       // Utilities
-       const $ = (sel) => document.querySelector(sel);
-       const $$ = (sel) => Array.from(document.querySelectorAll(sel));
-       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .marquee-track {
+        animation: marquee 12s linear infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track {
+          animation: none;
+        }
+      }
 
-       // Sync --header-h with real header height
-       const headerEl = document.querySelector("header");
-       function setHeaderHeightVar() {
-         const h = headerEl?.offsetHeight || 56;
-         document.documentElement.style.setProperty("--header-h", h + "px");
-       }
-       setHeaderHeightVar();
-       window.addEventListener("resize", setHeaderHeightVar);
-       if (document.fonts && document.fonts.ready) {
-         document.fonts.ready.then(setHeaderHeightVar).catch(() => {});
-       }
+      .quote-mark {
+        font-size: clamp(80px, 14vw, 180px);
+        line-height: 0.6;
+        opacity: 0.18;
+      }
+      .clip-band-angled {
+        clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
+      }
+      /* was: 0.9rem / 1.4rem */
+      .band-tight {
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
+      }
+      @media (min-width: 768px) {
+        .band-tight {
+          padding-top: 3.5rem;
+          padding-bottom: 4rem;
+        }
+      }
 
-       // Elements
-       const btn = $("#menuBtn");
-       const menu = $("#siteMenu");
-       const closeBtn = $("#menuClose");
-       const overlay = $("#menuOverlay");
-       const disBtn = $("#disclosureBtn");
-       const panel = $("#disclosurePanel");
+      .qwrap {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .qmark {
+        color: #fff;
+        font-weight: 900;
+        font-size: clamp(28px, 5vw, 64px);
+        line-height: 0.8;
+        opacity: 0.9;
+        display: inline-block;
+        transform: translateY(0.05em);
+      }
 
-       // Footer year
-       const yearEl = $("#year");
-       if (yearEl) yearEl.textContent = new Date().getFullYear();
+      .quote-arrows {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: clamp(14px, 2.8vw, 24px);
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        pointer-events: none;
+      }
+      #quotes figure {
+        padding-bottom: clamp(3.5rem, 6vw, 4.5rem);
+      }
+      .quote-arrows > * {
+        pointer-events: auto;
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
 
-       // Focus trap
-       let prevFocused = null;
-       const focusableSel = [
-         "a[href]","button:not([disabled])","input:not([disabled])",
-         "select:not([disabled])","textarea:not([disabled])",'[tabindex]:not([tabindex="-1"])',
-       ].join(",");
-       function trapFocus(e) {
-         if (!menu || menu.classList.contains("translate-x-full")) return;
-         const focusables = $$("#siteMenu " + focusableSel).filter((el) => el.offsetParent !== null);
-         if (!focusables.length) return;
-         const first = focusables[0], last = focusables[focusables.length - 1];
-         if (e.key === "Tab") {
-           if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-           else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-         }
-       }
+      .arrow-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(191, 244, 123, 0.22);
+        border: 1.5px solid #bff47b;
+        color: #05e0e9;
+        transition: transform 120ms ease-out, background-color 120ms ease-out;
+      }
+      .arrow-btn:hover {
+        background: rgba(191, 244, 123, 0.32);
+        transform: translateY(-1px);
+      }
+      .arrow-btn:active {
+        transform: translateY(0);
+      }
+      .arrow-btn:focus-visible {
+        outline: 3px solid #05e0e9;
+        outline-offset: 3px;
+      }
+      .arrow-btn svg {
+        width: 30px;
+        height: 30px;
+        stroke: currentColor;
+      }
 
-       function openMenu() {
-         if (!menu || !overlay) return;
-         prevFocused = document.activeElement;
-         menu.classList.remove("translate-x-full");
-         overlay.classList.remove("opacity-0","pointer-events-none");
-         overlay.classList.add("opacity-100");
-         document.body.classList.add("overflow-hidden");
-         btn?.setAttribute("aria-expanded","true");
-         menu.querySelector(focusableSel)?.focus();
-         if (reduceMotion) { menu.style.transition = "none"; overlay.style.transition = "none"; }
-       }
-       function closeMenu() {
-         if (!menu || !overlay) return;
-         menu.classList.add("translate-x-full");
-         overlay.classList.add("opacity-0","pointer-events-none");
-         overlay.classList.remove("opacity-100");
-         document.body.classList.remove("overflow-hidden");
-         btn?.setAttribute("aria-expanded","false");
-         if (prevFocused && typeof prevFocused.focus === "function") prevFocused.focus();
-         if (reduceMotion) { menu.style.transition = ""; overlay.style.transition = ""; }
-       }
+      .band-carrara {
+        background: #f1f2ec;
+        position: relative;
+      }
+      .band-carrara::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: radial-gradient(rgba(68, 68, 67, 0.18) 1px, transparent 1px)
+            0 0/14px 14px,
+          linear-gradient(
+            135deg,
+            transparent 0 70%,
+            rgba(5, 224, 233, 0.1) 70% 72%,
+            transparent 72%
+          ),
+          linear-gradient(
+            -135deg,
+            transparent 0 80%,
+            rgba(191, 244, 123, 0.1) 80% 82%,
+            transparent 82%
+          );
+        pointer-events: none;
+      }
+      .band-carrara .edge-x {
+        position: relative;
+        z-index: 10;
+      }
+      .band-carrara .quote-arrows {
+        position: relative;
+        z-index: 10;
+      }
+      .band-carrara .qmark,
+      .band-carrara .quote-close::after {
+        color: #bff47b !important;
+        opacity: 1;
+      }
 
-       btn?.addEventListener("click", openMenu);
-       closeBtn?.addEventListener("click", closeMenu);
-       overlay?.addEventListener("click", closeMenu);
-       document.addEventListener("keydown", (e) => {
-         if (e.key === "Escape") closeMenu();
-         if (e.key === "Tab") trapFocus(e);
-       });
+      .belt-frame {
+        position: relative;
+        padding: 1.25rem 1.6rem 1.7rem;
+      }
+      @media (min-width: 768px) {
+        .belt-frame {
+          padding: 2.2rem 2.6rem 2.1rem;
+        }
+      }
+      .belt-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0.6rem 0.9rem;
+        border-radius: 1.5rem;
+        border: 2px solid #bff47b;
+        pointer-events: none;
+        z-index: 5;
+      }
 
-       // Disclosure
-       disBtn?.addEventListener("click", () => {
-         const expanded = disBtn.getAttribute("aria-expanded") === "true";
-         disBtn.setAttribute("aria-expanded", String(!expanded));
-         disBtn.querySelector("svg")?.classList.toggle("rotate-180", !expanded);
-         panel.style.maxHeight = !expanded ? panel.scrollHeight + "px" : "0px";
-       });
-       window.addEventListener("resize", () => {
-         if (disBtn?.getAttribute("aria-expanded") === "true") {
-           panel.style.maxHeight = panel.scrollHeight + "px";
-         }
-       });
-       if (reduceMotion) {
-         panel.style.transition = "none";
-         disBtn?.querySelector("svg")?.classList.remove("transition-transform");
-       }
+      .clients-band .belt-frame::before,
+      .clients-band .belt-frame::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #bff47b;
+        border: none;
+        border-radius: 0;
+        pointer-events: none;
+        z-index: 5;
+      }
+      .clients-band .belt-frame::before {
+        top: 0;
+      }
+      .clients-band .belt-frame::after {
+        bottom: 0;
+      }
 
-       // ===== Carousel Logic =====
-       const viewport = $("#carouselViewport");
-       const nextBtn = $("#nextBtn");
-       const prevBtn = $("#prevBtn");
-       const ppBtn = $("#ppBtn");
-       const dotsEl = $("#dots");
+      .clients-band {
+        position: relative;
+        background: #f1f2ec;
+      }
+      .clients-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(
+              rgba(5, 224, 233, 0.16) 1px,
+              transparent 1px
+            )
+            0 0/14px 14px,
+          linear-gradient(
+            120deg,
+            transparent 0 42%,
+            rgba(191, 244, 123, 0.18) 42% 44%,
+            transparent 44% 100%
+          ),
+          linear-gradient(
+            -120deg,
+            transparent 0 68%,
+            rgba(5, 224, 233, 0.18) 68% 70%,
+            transparent 70% 100%
+          );
+      }
+      .clients-band-inner {
+        position: relative;
+        z-index: 10;
+      }
+      .clients-band .edge-x {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .clients-band .wrap {
+        max-width: none;
+      }
+      .clients-belt {
+        position: relative;
+        overflow: hidden;
+      }
+      .clients-belt::before,
+      .clients-belt::after {
+        content: none !important;
+      }
 
-       // Use relative filenames (files are in repo root next to index.html)
-       const slides = [
-         { href: "garden.html?lightbox=0", src: "monet-house-garden-giverny-floral-landscape-art-1-2.jpg", alt: "Monet’s House Garden in Giverny — floral landscape" },
-         { href: "explore-ui-ux-web-design.html", src: "sheffield-ui-ux-web-designer-photographer-garden-office-contemporary-design.jpg", alt: "Sheffield UI/UX Web Designer — Garden Office Contemporary Design" },
-         { href: "landscapes.html?lightbox=0", src: "taroudant-paradise-gardens-40m-corridor-swimming-pool-1.jpg", alt: "Taroudant — 40-metre corridor swimming pool, Paradise Gardens" },
-         { href: "shop.html", src: "sheffield-ui-ux-web-designer-photographer-pollinator-garden-plants.jpg", alt: "Sheffield pollinator garden — UI/UX web designer" },
-       ];
+      .client-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.4rem 1rem;
+        border-radius: 999px;
+        border: none;
+        box-shadow: none;
+        background: #ff1fa9;
+        font-family: "Syne", system-ui, sans-serif;
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: #fff;
+        transition: transform 150ms ease-out, background-color 150ms ease-out;
+      }
+      .client-pill span {
+        opacity: 1;
+      }
+      .client-pill:hover {
+        background: #ff3ab3;
+        transform: translateY(-1px);
+      }
+      .client-pill:focus-visible {
+        outline: 2px solid #05e0e9;
+        outline-offset: 2px;
+      }
 
-       // Fallback for previews that don't include the images (e.g., CodeSandbox)
-       const RAW_PREFIX = "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/";
+      @media (min-width: 1024px) {
+        #quotes blockquote {
+          max-width: 78ch;
+          text-wrap: balance;
+        }
+      }
 
-       // Preload the second slide so the first advance is instant
-       const preload = new Image(); preload.decoding = "async";
-       preload.src = (slides[1] && slides[1].src) || "";
+      .dot-list {
+        list-style: none;
+        padding-left: 0;
+      }
+      .dot-list li {
+        position: relative;
+        padding-left: 1.2rem;
+      }
+      .dot-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background-color: #05e0e9;
+      }
+    </style>
 
-       let idx = 0; let paused = false;
-       const autoplayMs = 2400; // was 3400
-       let timer = null;
+    <!-- JSON-LD: WebSite + ProfessionalService + Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://lbylian.com/#website",
+            "url": "https://lbylian.com/",
+            "name": "L by Lian",
+            "description": "Bespoke web design with clear structure, strong performance and accessibility — plus selected garden photography and image preparation for creative projects across Sheffield, London and Paris.",
+            "inLanguage": "en-GB",
+            "publisher": { "@id": "https://lbylian.com/#business" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://lbylian.com/#lian-li",
+            "name": "Lian Li",
+            "alternateName": "L by Lian",
+            "url": "https://lbylian.com/",
+            "jobTitle": "UX/UI designer and garden photographer",
+            "description": "L by Lian creates UX/UI web design, image SEO and file prep for artists, designers and selected garden photography projects in Sheffield, London and Paris.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Sheffield",
+              "addressCountry": "GB"
+            },
+            "sameAs": [
+              "https://www.instagram.com/lbylian/",
+              "https://www.linkedin.com/in/lianli23/"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "email": "hello@lbylian.com",
+            "@id": "https://lbylian.com/#business",
+            "name": "L by Lian",
+            "url": "https://lbylian.com/",
+            "description": "Bespoke web design, UX/UI, accessibility and performance improvements — plus selected garden photography and image preparation for creative projects.",
+            "areaServed": [
+              { "@type": "City", "name": "Sheffield" },
+              { "@type": "City", "name": "London" },
+              { "@type": "City", "name": "Paris" }
+            ],
+            "founder": { "@id": "https://lbylian.com/#lian-li" },
+            "knowsAbout": [
+              "UX design",
+              "UI design",
+              "Web design",
+              "Accessibility",
+              "Performance optimization",
+              "Image SEO",
+              "Garden photography"
+            ],
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "hello@lbylian.com",
+                "availableLanguage": ["en", "fr"]
+              }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/lbylian/",
+              "https://www.linkedin.com/in/lianli23/"
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
 
-       function renderSlides() {
-         slides.forEach((s, i) => {
-           const fig = document.createElement("figure");
-           fig.className = "carousel__slide";
-           fig.setAttribute("aria-hidden", i === idx ? "false" : "true");
+  <body class="font-sans antialiased text-[17px] leading-[1.65]">
+    <!-- Sulu frame (kept) -->
+    <div class="min-h-[100dvh] bg-brand-sulu p-[var(--frame)]">
+      <div
+        class="bg-brand-carrara text-brand-gray min-h-[calc(100dvh-2*var(--frame))] relative"
+      >
+        <!-- HEADER -->
+        <header
+          class="sticky top-0 z-30 bg-gradient-to-b from-brand-carrara/95 to-white/90 backdrop-blur"
+        >
+          <div class="edge-x">
+            <div
+              class="wrap mx-auto flex items-center justify-between pt-1 pb-[3px]"
+            >
+              <!-- Logo -->
+              <div class="m-0">
+                <a
+                  href="index.html"
+                  class="inline-flex items-center gap-2 md:gap-3 whitespace-nowrap group"
+                  aria-label="L by Lian"
+                >
+                  <svg
+                    class="shrink-0 block h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 text-brand-black"
+                    viewBox="0 0 320 240"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="120"
+                      y="40"
+                      width="56"
+                      height="200"
+                      rx="6"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="200"
+                      y="176"
+                      width="64"
+                      height="64"
+                      rx="4"
+                      fill="currentColor"
+                    />
+                    <circle cx="232" cy="150" r="18" fill="#bff47b" />
+                  </svg>
+                  <span
+                    class="shrink-0 font-hand text-brand-gray text-[18px] md:text-[19px] leading-none tracking-[0.04em]"
+                  >
+                    by&nbsp;Lian
+                  </span>
+                </a>
+              </div>
 
-           const link = document.createElement("a");
-           link.href = s.href; link.className = "block w-full h-full";
-           link.setAttribute("aria-label", s.alt || "Open slide");
+              <!-- Desktop nav -->
+              <nav
+                aria-label="Primary"
+                class="hidden lg:flex items-center gap-6 text-[15px]"
+              >
+                <a
+                  href="index.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >Home</a
+                >
+                <a
+                  href="web-design-case-studies.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                >
+                  UI<span class="sr-only"> and </span
+                  ><span aria-hidden="true" class="text-brand-accent">/</span>UX
+                  Web Design
+                </a>
 
-           const img = document.createElement("img");
-           img.className = "carousel__img";
-           img.src = s.src;
-           img.alt = s.alt || "";
+                <!-- Photography dropdown (desktop) -->
+                <div class="relative group" id="desktopPhotographyGroup">
+                  <button
+                    id="desktopPhotographyButton"
+                    class="inline-flex items-center gap-1 text-brand-black hover:text-brand-sulu focus:outline-none"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="desktopPhotographyMenu"
+                    type="button"
+                  >
+                    <span>Photography</span>
+                    <svg
+                      class="h-4 w-4 transition-transform duration-150 group-focus-within:rotate-180 group-hover:rotate-180 text-brand-accent"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 011.04 1.08l-4.23 3.35a.75.75 0 01-.94 0L5.21 8.31a.75.75 0 01.02-1.1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
 
-           // Fallback to GitHub RAW if local/relative path 404s (for dev sandboxes)
-           img.onerror = () => {
-             if (!img.src.startsWith(RAW_PREFIX)) {
-               img.src = RAW_PREFIX + s.src;
-             }
-           };
+                  <div
+                    id="desktopPhotographyMenu"
+                    role="menu"
+                    class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 absolute left-0 mt-2 min-w-[220px] rounded-2xl bg-white shadow-lg ring-1 ring-black/10 transition-all"
+                  >
+                    <ul class="py-2 text-[14px]">
+                      <li>
+                        <a
+                          href="collections-gardens.html"
+                          class="block px-4 py-2 text-brand-black hover:bg-black/5 rounded-xl"
+                          role="menuitem"
+                          >Gardens</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
 
-           if (i === 0) { img.fetchPriority = "high"; }
-           else if (i === 1) { img.decoding = "async"; }
-           else { img.loading = "lazy"; img.decoding = "async"; }
+                <a
+                  href="shop.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >Shop</a
+                >
+                <a
+                  href="about.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >About</a
+                >
+                <a
+                  href="contact.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >Contact</a
+                >
+              </nav>
 
-           link.appendChild(img);
-           fig.appendChild(link);
+              <!-- Mobile / iPad hamburger -->
+              <button
+                id="menuBtn"
+                class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-brand-accent hover:bg-brand-gray/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50"
+                aria-label="Open menu"
+                aria-controls="siteMenu"
+                aria-expanded="false"
+                type="button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 7h16M4 12h16M4 17h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
 
-           const grad = document.createElement("div");
-           grad.className = "carousel__gradient";
-           fig.appendChild(grad);
+        <!-- Slide-out menu -->
+        <nav
+          id="siteMenu"
+          class="fixed z-50 top-[var(--frame)] right-[var(--frame)] h-[calc(100dvh-2*var(--frame))] w-72 max-w-[80vw] bg-brand-carrara shadow-xl translate-x-full transition-transform duration-150"
+          aria-label="Site menu"
+        >
+          <div class="flex h-full flex-col">
+            <div
+              class="flex items-center justify-between p-4 border-b border-brand-accent/40"
+            >
+              <span class="text-base font-display text-brand-black">Menu</span>
+              <button
+                id="menuClose"
+                type="button"
+                class="p-2 rounded-full text-brand-accent hover:bg-brand-gray/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
+                aria-label="Close menu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
 
-           const cap = document.createElement("figcaption");
-           cap.className = "absolute bottom-6 left-6 text-white/95 text-sm md:text-base drop-shadow";
-           cap.textContent = s.caption || "";
-           fig.appendChild(cap);
+            <ul
+              class="flex-grow overflow-y-auto px-4 py-5 space-y-2.5 text-[15px] leading-6"
+            >
+              <li>
+                <a
+                  href="index.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="web-design-case-studies.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >UI/UX Web Design</a
+                >
+              </li>
+              <!-- Photography disclosure -->
+              <li>
+                <button
+                  id="disclosureBtn"
+                  type="button"
+                  class="w-full flex items-center justify-between py-1.5 text-brand-black hover:text-brand-sulu"
+                  aria-expanded="false"
+                  aria-controls="disclosurePanel"
+                >
+                  <span>Photography</span>
+                  <svg
+                    class="h-4 w-4 text-brand-accent transition-transform duration-150"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 011.04 1.08l-4.23 3.35a.75.75 0 01-.94 0L5.21 8.31a.75.75 0 01.02-1.1z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
 
-           viewport.appendChild(fig);
+                <div
+                  id="disclosurePanel"
+                  class="max-h-0 overflow-hidden transition-[max-height] duration-150 ease-in-out"
+                >
+                  <ul
+                    class="pl-4 py-1 space-y-2 border-l border-brand-accent/40"
+                  >
+                    <li>
+                      <a
+                        href="collections-gardens.html"
+                        class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                        >Gardens</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
 
-           const dot = document.createElement("button");
-           dot.className = "h-2.5 w-2.5 rounded-full " + (i === idx ? "bg-white" : "bg-white/50 hover:bg-white/80");
-           dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
-           dot.addEventListener("click", () => goTo(i));
-           dotsEl.appendChild(dot);
-         });
-       }
+              <li>
+                <a
+                  href="shop.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-       function updateDots() {
-         $$("#dots button").forEach((b, i) => {
-           b.className = "h-2.5 w-2.5 rounded-full " + (i === idx ? "bg-white" : "bg-white/50 hover:bg-white/80");
-         });
-       }
+        <!-- Overlay -->
+        <div
+          id="menuOverlay"
+          class="fixed z-40 inset-[var(--frame)] bg-brand-black/60 opacity-0 pointer-events-none transition-opacity duration-150"
+          aria-hidden="true"
+        ></div>
 
-       function setActive(newIdx) {
-         const slidesEls = $$(".carousel__slide");
-         if (!slidesEls.length || newIdx === idx) return;
-         slidesEls[idx]?.setAttribute("aria-hidden", "true");
-         idx = newIdx;
-         slidesEls[idx]?.setAttribute("aria-hidden", "false");
-         updateDots();
-       }
+        <!-- HERO -->
+        <section class="mb-[1cm]">
+          <div
+            class="relative w-full h-[60svh] sm:h-[70svh] md:h-[80svh] lg:h-[88svh] overflow-hidden"
+          >
+            <div class="absolute inset-0 dot-grid z-0"></div>
 
-       function next() { setActive((idx + 1) % slides.length); }
-       function prev() { setActive((idx - 1 + slides.length) % slides.length); }
-       function goTo(i) { setActive(i); }
+            <!-- Static hero fallback (SEO + LCP) -->
 
-       function play() {
-         if (timer) clearInterval(timer);
-         if (!paused && !reduceMotion) timer = setInterval(next, autoplayMs);
-       }
+            <img
+              src="assets/portfolio-images/digital_design.jpg"
+              alt="UX/UI website and mobile interface design work by L by Lian."
+              width="1600"
+              height="1067"
+              class="absolute inset-0 w-full h-full object-cover z-10"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/digital_design.jpg';"
+            />
 
-       // init
-       renderSlides();
-       setActive(0);
+            <div
+              id="heroStage"
+              class="hero-animates absolute inset-0 z-20"
+            ></div>
 
-       if (!reduceMotion) {
-         setTimeout(() => { next(); play(); }, 400);
-       } else {
-         paused = true;
-         if (ppBtn) { ppBtn.textContent = "▶"; ppBtn.setAttribute("aria-label", "Play"); }
-       }
+            <noscript>
+              <img
+                src="assets/portfolio-images/sheffield-ui-ux-web-designer-photographer-garden-urban-oasis.jpg"
+                alt="Soft summer light over a tranquil urban garden photographed by L by Lian."
+                width="1600"
+                height="1067"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </noscript>
 
-       // Controls
-       nextBtn?.addEventListener("click", () => { next(); play(); });
-       prevBtn?.addEventListener("click", () => { prev(); play(); });
+            <div
+              class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 z-30 flex items-center gap-3"
+            >
+              <a
+                href="web-design-case-studies.html"
+                class="inline-flex items-center px-4 h-10 rounded-full bg-brand-sulu text-brand-black font-display shadow-sm hover:bg-brand-sulu/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40 transition"
+                >View web design work</a
+              >
+            </div>
+          </div>
+        </section>
 
-       ppBtn?.addEventListener("click", () => {
-         paused = !paused;
-         ppBtn.textContent = paused ? "▶" : "⏸";
-         ppBtn.setAttribute("aria-label", paused ? "Play" : "Pause");
-         play();
-       });
+        <!-- HEADLINE BAND -->
+        <div class="edge-x">
+          <div class="wrap mx-auto pt-8 md:pt-14">
+            <div
+              id="arrowStage"
+              class="relative grid grid-cols-1 md:grid-cols-12 md:gap-12 lg:gap-16 items-start"
+            >
+              <!-- Sulu arrow -->
+              <svg
+                id="suluArrow"
+                class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 md:w-[160px] lg:w-[200px] xl:w-[240px] h-auto text-brand-sulu pointer-events-none z-0"
+                viewBox="0 0 160 160"
+                aria-hidden="true"
+              >
+                <polygon points="0,16 0,144 160,80" fill="currentColor" />
+              </svg>
 
-       // Autoplay behavior
-       viewport.addEventListener("focusin", () => { paused = true; if (ppBtn) ppBtn.textContent = "▶"; play(); });
-       viewport.addEventListener("focusout", () => { paused = false; if (ppBtn) ppBtn.textContent = "⏸"; play(); });
-       document.addEventListener("visibilitychange", () => { paused = document.hidden || paused; play(); });
+              <div class="md:col-span-3 relative"></div>
 
-       // Keyboard
-       window.addEventListener("keydown", (e) => {
-         if (e.key === "ArrowRight") { next(); play(); }
-         if (e.key === "ArrowLeft") { prev(); play(); }
-         if (e.code === "Space") { e.preventDefault(); ppBtn?.click(); }
-       });
+              <div class="md:col-span-9 md:pl-4 lg:pl-8">
+                <!-- Location Eyebrow -->
+                <p
+                  class="text-xs uppercase tracking-[0.28em] text-brand-gray/80 md:ml-1 lg:ml-2"
+                >
+                  Sheffield
+                  <span
+                    class="text-brand-accent inline-block align-middle text-[1.1em] leading-none"
+                    >·</span
+                  >
+                  London
+                  <span
+                    class="text-brand-accent inline-block align-middle text-[1.1em] leading-none"
+                    >·</span
+                  >
+                  Paris
+                </p>
 
-       // Swipe
-       let startX = null;
-       viewport.addEventListener("pointerdown", (e) => { startX = e.clientX; });
-       viewport.addEventListener("pointerup", (e) => {
-         if (startX == null) return;
-         const dx = e.clientX - startX; startX = null;
-         const threshold = 40;
-         if (dx > threshold) { prev(); play(); }
-         if (dx < -threshold) { next(); play(); }
-       });
-     })();
-   </script>
+                <!-- Headline -->
+                <h1
+                  class="mt-6 poster font-headline text-brand-black max-w-xl md:max-w-2xl xl:max-w-3xl leading-[1.08] md:leading-[1.02] tracking-[-0.02em]"
+                >
+                  Websites for creative&nbsp;studios
+                </h1>
 
-   <!-- Trim search query before submit (place at the very end) -->
-   <script>
-     (function () {
-       var form = document.getElementById("site-search-form");
-       if (!form) return;
-       form.addEventListener("submit", function () {
-         var input = form.querySelector('input[name="q"]');
-         if (input) input.value = (input.value || "").trim();
-       });
-     })();
-   </script>
- </body>
+                <!-- Supporting copy -->
+                <p
+                  class="mt-8 text-base md:text-lg text-brand-gray max-w-xl md:max-w-2xl lg:max-w-2xl md:ml-1 lg:ml-2 leading-relaxed"
+                >
+                  I design and build bespoke websites for garden designers,
+                  artists and creative studios, with the work always at the
+                  centre.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr
+          class="mt-12 md:mt-16 mb-8 md:mb-10 border-0 border-t border-brand-accent w-full"
+        />
+
+        <!-- FEATURED WORK -->
+        <section
+          id="work"
+          class="py-12 md:py-16 border-y border-brand-accent/30 bg-white/40"
+        >
+          <div class="edge-x">
+            <div class="wrap mx-auto grid md:grid-cols-2 gap-6 items-start">
+              <figure class="group">
+                <img
+                  src="sheffield-city-guide-app.jpg"
+                  alt="Secret Sheffield — city guide app case study"
+                  width="2048"
+                  height="2022"
+                  class="h-[300px] sm:h-[360px] md:h-[420px] w-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-[1.03]"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/sheffield-city-guide-app.jpg';"
+                />
+
+                <figcaption class="mt-2 text-sm text-black/60">
+                  Secret Spot: Sheffield — a city guide concept designed to make
+                  local discovery simple and enjoyable.
+                </figcaption>
+              </figure>
+
+              <div class="pt-1">
+                <p
+                  class="text-[12px] uppercase tracking-[0.18em] text-black/50 mb-1"
+                >
+                  Selected work
+                </p>
+
+                <h2
+                  class="font-display text-3xl font-semibold tracking-[-0.01em]"
+                >
+                  Web design projects
+                </h2>
+
+                <p class="mt-3 text-black/70 leading-[1.65] max-w-prose">
+                  A selection of recent website projects for creative studios.
+                </p>
+
+                <a
+                  href="web-design-case-studies.html"
+                  class="mt-5 inline-flex items-center px-4 h-10 rounded-full bg-brand-sulu text-brand-black font-display shadow-sm hover:bg-brand-sulu/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40 transition"
+                >
+                  View case studies
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-12 md:mt-16 pb-10 md:pb-14">
+          <div class="edge-x">
+            <div class="wrap mx-auto">
+              <p
+                class="text-[12px] uppercase tracking-[0.18em] text-black/50 mb-2"
+              >
+                What I do
+              </p>
+
+              <div class="grid grid-cols-1 gap-8 items-start">
+                <article>
+                  <h2
+                    class="font-display text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-brand-black"
+                  >
+                    Bespoke websites for visual portfolios
+                  </h2>
+
+                  <p
+                    class="mt-3 text-black/70 text-sm md:text-base max-w-prose"
+                  >
+                    Each website is designed and built around the way your work
+                    needs to be seen — with clear structure, thoughtful pacing
+                    and space for the right images to do their job.
+                  </p>
+
+                  <ul class="mt-4 space-y-1.5 text-sm text-black/80 dot-list">
+                    <li>New websites and thoughtful redesigns</li>
+                    <li>Structure, layout and content planning</li>
+                    <li>Performance, accessibility and responsive checks</li>
+                    <li>Image preparation and ongoing support</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section
+          class="relative isolate band-tight band-carrara bg-white/40 border-y border-brand-accent/30"
+        >
+          <div class="edge-x">
+            <div class="wrap mx-auto">
+              <div class="belt-frame">
+                <div
+                  id="quotes"
+                  class="relative mt-1 md:mt-2"
+                  aria-live="polite"
+                >
+                  <!-- testimonial injected by JS -->
+                </div>
+
+                <div class="quote-arrows">
+                  <nav aria-label="Testimonial navigation">
+                    <button
+                      id="quotePrev"
+                      type="button"
+                      class="arrow-btn"
+                      aria-label="Previous testimonial"
+                    >
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M14 18l-6-6 6-6"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="3"
+                        />
+                      </svg>
+                    </button>
+
+                    <button
+                      id="quoteNext"
+                      type="button"
+                      class="arrow-btn"
+                      aria-label="Next testimonial"
+                    >
+                      <svg viewBox="0 0 24 24">
+                        <path
+                          d="M10 6l6 6-6 6"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="3"
+                        />
+                      </svg>
+                    </button>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW I WORK -->
+        <section class="py-16 md:py-24">
+          <div class="edge-x">
+            <div class="wrap mx-auto">
+              <div class="max-w-2xl mb-12">
+                <h2
+                  class="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-brand-black"
+                >
+                  How I work
+                </h2>
+
+                <p class="mt-3 text-black/70">
+                  A straightforward process that keeps the focus on your work
+                  and how it appears online.
+                </p>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-x-10 gap-y-12">
+                <article>
+                  <div class="text-brand-black text-sm">01</div>
+                  <div class="rule-squares mt-2"></div>
+
+                  <h3
+                    class="mt-5 font-display text-2xl font-semibold text-brand-black"
+                  >
+                    Understanding your work
+                  </h3>
+
+                  <p class="mt-2 text-black/70">
+                    We begin with a conversation about your work, your goals and
+                    the kind of clients you want to attract. From your images,
+                    notes and references we shape the structure and content of
+                    the website together.
+                  </p>
+                </article>
+
+                <article>
+                  <div class="text-brand-black text-sm">02</div>
+                  <div class="rule-squares mt-2"></div>
+
+                  <h3
+                    class="mt-5 font-display text-2xl font-semibold text-brand-black"
+                  >
+                    Designing the website
+                  </h3>
+
+                  <p class="mt-2 text-black/70">
+                    I design the layout and organisation of the site so visitors
+                    can quickly understand what they are looking at. Images,
+                    text and navigation are arranged to make the work easy to
+                    explore.
+                  </p>
+                </article>
+
+                <article>
+                  <div class="text-brand-black text-sm">03</div>
+                  <div class="rule-squares mt-2"></div>
+
+                  <h3
+                    class="mt-5 font-display text-2xl font-semibold text-brand-black"
+                  >
+                    Refining and launching
+                  </h3>
+
+                  <p class="mt-2 text-black/70">
+                    Once the design is ready, we review the details together and
+                    refine the content and images. The final result is a website
+                    that feels clear, professional and ready to share.
+                  </p>
+                </article>
+              </div>
+
+              <p class="mt-8 text-sm text-black/60">
+                You can read more about my background and process on the
+                <a
+                  href="about.html"
+                  class="underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-black"
+                >
+                  About page </a
+                >.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- MINI CONTACT CTA -->
+        <section class="pt-2 pb-8 md:pt-2 md:pb-10">
+          <div class="edge-x">
+            <div class="wrap mx-auto">
+              <div
+                class="rounded-2xl bg-white/60 ring-1 ring-brand-accent/60 p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-8"
+              >
+                <div class="max-w-xl">
+                  <p
+                    class="text-[12px] uppercase tracking-[0.18em] text-black/50 mb-2"
+                  >
+                    Contact
+                  </p>
+
+                  <h2
+                    class="font-display text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-brand-black"
+                  >
+                    Considering a new website for your studio?
+                  </h2>
+
+                  <p class="mt-2 text-black/70 text-sm md:text-base">
+                    Send me a few lines about your work and what you have in
+                    mind. No pressure — we’ll simply see if it’s a good fit.
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                  <a
+                    href="mailto:hello@lbylian.com"
+                    class="inline-flex items-center px-5 h-11 rounded-full bg-brand-sulu text-brand-black font-display shadow-sm hover:bg-brand-sulu/90"
+                  >
+                    Email me
+                  </a>
+
+                  <a
+                    href="contact.html"
+                    class="inline-flex items-center px-5 h-11 rounded-full ring-1 ring-brand-accent/40 text-brand-black hover:bg-brand-accent/10"
+                  >
+                    Talk it through
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CLIENTS BELT -->
+        <section aria-label="Selected clients" class="clients-band bg-white/40">
+          <div class="edge-x">
+            <div
+              class="wrap mx-auto py-12 md:py-16 belt-frame clients-band-inner"
+            >
+              <div class="flex flex-col gap-2 mb-3">
+                <h3
+                  class="font-display text-sm sm:text-base tracking-[-0.02em] text-brand-black"
+                >
+                  People I’ve collaborated and created for
+                </h3>
+                <p
+                  class="max-w-2xl text-[13px] sm:text-sm text-brand-black/70 leading-relaxed"
+                >
+                  Over the years I’ve had the privilege of living in Paris then
+                  London and now Sheffield, working with many inspiring people
+                  and companies – first through photography and now increasingly
+                  through digital design.
+                </p>
+                <p
+                  class="max-w-2xl text-[13px] sm:text-sm text-brand-black/70 leading-relaxed"
+                >
+                  My photography has appeared in titles including Elle,
+                  Cosmopolitan, Libération, Madame Figaro and Vanity Fair, and
+                  in campaigns for creative agencies across Paris and London.
+                </p>
+              </div>
+
+              <div class="clients-belt">
+                <div
+                  class="marquee-track flex gap-4 md:gap-6 whitespace-nowrap"
+                >
+                  <div class="flex gap-4 md:gap-6 shrink-0 pr-6">
+                    <div class="client-pill"><span>BETC · Paris</span></div>
+                    <div class="client-pill">
+                      <span>Young &amp; Rubicam · Paris</span>
+                    </div>
+                    <div class="client-pill"><span>DDB · Paris</span></div>
+                    <div class="client-pill">
+                      <span>Eurostar Magazine</span>
+                    </div>
+                    <div class="client-pill"><span>Elle · FR</span></div>
+                    <div class="client-pill">
+                      <span>Cosmopolitan · UK / FR</span>
+                    </div>
+                    <div class="client-pill"><span>Libération · FR</span></div>
+                    <div class="client-pill">
+                      <span>Madame Figaro · FR</span>
+                    </div>
+                    <div class="client-pill">
+                      <span>Saatchi &amp; Saatchi · FR</span>
+                    </div>
+                    <div class="client-pill">
+                      <span>Catriona Rowbotham</span>
+                    </div>
+                    <div class="client-pill"><span>Vanity Fair · UK</span></div>
+                  </div>
+
+                  <div
+                    class="flex gap-4 md:gap-6 shrink-0 pr-6"
+                    aria-hidden="true"
+                  >
+                    <div class="client-pill"><span>BETC · Paris</span></div>
+                    <div class="client-pill">
+                      <span>Young &amp; Rubicam · Paris</span>
+                    </div>
+                    <div class="client-pill"><span>DDB · Paris</span></div>
+                    <div class="client-pill">
+                      <span>Eurostar Magazine</span>
+                    </div>
+                    <div class="client-pill"><span>Elle · FR</span></div>
+                    <div class="client-pill">
+                      <span>Cosmopolitan · UK / FR</span>
+                    </div>
+                    <div class="client-pill"><span>Libération · FR</span></div>
+                    <div class="client-pill">
+                      <span>Madame Figaro · FR</span>
+                    </div>
+                    <div class="client-pill">
+                      <span>Saatchi &amp; Saatchi · FR</span>
+                    </div>
+                    <div class="client-pill">
+                      <span>Catriona Rowbotham Garden Designs</span>
+                    </div>
+                    <div class="client-pill"><span>Vanity Fair · UK</span></div>
+                  </div>
+                </div>
+
+                <p
+                  class="mt-3 text-[12px] text-brand-black/50 tracking-[0.16em] uppercase"
+                >
+                  Editorial, advertising &amp; digital commissions
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PHOTOGRAPHY (supporting craft / selected) -->
+        <section class="mt-8 md:mt-12 py-14 md:py-20 bg-white/40">
+          <div class="edge-x">
+            <div class="wrap mx-auto">
+              <p
+                class="text-[12px] uppercase tracking-[0.18em] text-black/50 mb-2"
+              >
+                Also available
+              </p>
+
+              <div class="grid grid-cols-1 gap-6 items-start">
+                <article>
+                  <h2
+                    class="font-display text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-brand-black"
+                  >
+                    Selected Garden Photography
+                  </h2>
+
+                  <p
+                    class="mt-3 text-black/70 text-sm md:text-base max-w-prose"
+                  >
+                    Editorial garden photography for studios and designers who
+                    want their projects to be experienced on the page much as
+                    they are in the garden — the play of light through leaves,
+                    the depth of colour, the texture of stone and planting, the
+                    atmosphere of the place itself.
+                  </p>
+
+                  <p
+                    class="mt-3 text-black/70 text-sm md:text-base max-w-prose"
+                  >
+                    I take on a small number of photography commissions each
+                    year.
+                  </p>
+
+                  <ul class="mt-4 space-y-1.5 text-sm text-black/80 dot-list">
+                    <li>
+                      Garden portraits and completed project documentation
+                    </li>
+                    <li>
+                      Image libraries for websites, press features and
+                      presentations
+                    </li>
+                    <li>
+                      Detail studies and wider views that give the work depth
+                      and context
+                    </li>
+                  </ul>
+
+                  <div class="mt-5 flex flex-wrap items-center gap-3">
+                    <a
+                      href="collections-gardens.html"
+                      class="inline-flex items-center px-4 h-10 rounded-full bg-brand-sulu text-brand-black font-display shadow-sm hover:bg-brand-sulu/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40 transition"
+                      >Browse photographs</a
+                    >
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Back to top -->
+        <button
+          id="backToTop"
+          class="fixed z-50 hidden flex items-center justify-center rounded-full bg-brand-accent text-brand-black shadow-lg ring-1 ring-black/10 right-[calc(var(--frame)+16px)] bottom-[calc(var(--frame)+16px)] w-12 h-12 md:w-14 md:h-14 hover:bg-brand-accent/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40"
+          aria-label="Back to top"
+          title="Back to top"
+          type="button"
+        >
+          <svg
+            viewBox="0 0 100 100"
+            class="w-6 h-6 md:w-7 md:h-7"
+            aria-hidden="true"
+          >
+            <path
+              d="M20 65 L50 35 L80 65 L70 65 L50 45 L30 65 Z"
+              fill="#ff1fa9"
+              stroke="#ff1fa9"
+              stroke-width="6"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <!-- FOOTER -->
+        <footer
+          id="contact"
+          class="border-t border-brand-accent/30 bg-white/40"
+        >
+          <div class="edge-x">
+            <div class="wrap mx-auto py-10 md:py-12">
+              <div class="flex flex-col items-center gap-8">
+                <!-- Logo -->
+                <div class="flex justify-center">
+                  <svg
+                    class="block h-12 w-12 text-brand-black"
+                    viewBox="0 0 320 240"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="120"
+                      y="40"
+                      width="56"
+                      height="200"
+                      rx="6"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="200"
+                      y="176"
+                      width="64"
+                      height="64"
+                      rx="4"
+                      fill="currentColor"
+                    />
+                    <circle cx="232" cy="150" r="18" fill="#bff47b" />
+                  </svg>
+                </div>
+
+                <!-- Contact + studio intro -->
+                <div
+                  class="text-center text-sm text-brand-black/70 max-w-lg space-y-3 leading-relaxed"
+                >
+                  <p>
+                    <a
+                      href="mailto:hello@lbylian.com"
+                      class="hover:text-brand-black transition"
+                    >
+                      hello@lbylian.com
+                    </a>
+                  </p>
+
+                  <p class="text-brand-black">
+                    Web design for small businesses who value simple, timeless
+                    design.
+                  </p>
+
+                  <p class="text-brand-black/60 text-xs max-w-md mx-auto">
+                    L by Lian is a boutique web design studio based in
+                    Sheffield, UK, creating custom websites for small businesses
+                    and offering selected garden photography for designers and
+                    magazines.
+                  </p>
+
+                  <p class="text-xs text-brand-black/70">
+                    Web design projects available year-round.
+                  </p>
+                </div>
+
+                <!-- Social -->
+                <nav aria-label="Social" class="flex items-center gap-3">
+                  <!-- Instagram -->
+                  <a
+                    class="inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-brand-accent text-brand-black shadow-sm hover:bg-brand-accent/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40"
+                    href="https://www.instagram.com/lbylian/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram: @lbylian"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5 md:w-6 md:h-6"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                      />
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="3.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                      />
+                      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+                    </svg>
+                  </a>
+
+                  <!-- LinkedIn -->
+                  <a
+                    class="inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-brand-accent text-brand-black shadow-sm hover:bg-brand-accent/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40"
+                    href="https://www.linkedin.com/in/lianli23/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn: Lian Li"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="w-5 h-5 md:w-6 md:h-6"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                      />
+                      <path
+                        d="M7 17v-7m0-3v.01M11 17v-4.5a2.5 2.5 0 0 1 5 0V17"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                      />
+                    </svg>
+                  </a>
+                </nav>
+
+                <!-- Legal -->
+                <div class="text-center text-xs text-brand-black space-y-1">
+                  <div>© <span id="year"></span> L by Lian · Sheffield, UK</div>
+
+                  <div
+                    class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-brand-black/70"
+                  >
+                    <a
+                      href="privacy-policy.html"
+                      rel="nofollow"
+                      class="underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-black"
+                    >
+                      Privacy Policy
+                    </a>
+
+                    <span aria-hidden="true">•</span>
+
+                    <a
+                      href="t-and-c.html"
+                      rel="nofollow"
+                      class="underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-black"
+                    >
+                      Terms &amp; Conditions
+                    </a>
+                  </div>
+
+                  <div class="text-brand-black/60">
+                    By using this website you agree to the Terms &amp;
+                    Conditions.
+                  </div>
+
+                  <div class="text-brand-black/70">
+                    Design &amp; photography by L by Lian.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- JS (menu + disclosure only) -->
+        <script>
+          const yearEl = document.getElementById("year");
+          if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+          const $ = (sel) => document.querySelector(sel);
+
+          const btn = $("#menuBtn");
+          const menu = $("#siteMenu");
+          const closeBtn = $("#menuClose");
+          const overlay = $("#menuOverlay");
+          const disBtn = $("#disclosureBtn");
+          const panel = $("#disclosurePanel");
+
+          const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+
+          function openMenu() {
+            if (!menu || !overlay || !btn) return;
+            menu.classList.remove("translate-x-full");
+            overlay.classList.remove("opacity-0", "pointer-events-none");
+            overlay.classList.add("opacity-100");
+            document.body.classList.add("overflow-hidden");
+            btn.setAttribute("aria-expanded", "true");
+          }
+
+          function closeMenu() {
+            if (!menu || !overlay || !btn) return;
+            menu.classList.add("translate-x-full");
+            overlay.classList.add("opacity-0", "pointer-events-none");
+            overlay.classList.remove("opacity-100");
+            document.body.classList.remove("overflow-hidden");
+            btn.setAttribute("aria-expanded", "false");
+          }
+
+          if (btn) btn.addEventListener("click", openMenu);
+          if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+          if (overlay) overlay.addEventListener("click", closeMenu);
+
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+          });
+
+          if (disBtn && panel) {
+            disBtn.addEventListener("click", () => {
+              const expanded = disBtn.getAttribute("aria-expanded") === "true";
+              disBtn.setAttribute("aria-expanded", String(!expanded));
+              const icon = disBtn.querySelector("svg");
+              if (icon) icon.classList.toggle("rotate-180", !expanded);
+              panel.style.maxHeight = !expanded
+                ? panel.scrollHeight + "px"
+                : "0px";
+            });
+
+            if (reduceMotion) panel.style.transition = "none";
+          }
+
+          const desktopGroup = document.getElementById(
+            "desktopPhotographyGroup"
+          );
+          const desktopBtn = document.getElementById(
+            "desktopPhotographyButton"
+          );
+
+          if (desktopGroup && desktopBtn) {
+            const setExpanded = (value) => {
+              desktopBtn.setAttribute(
+                "aria-expanded",
+                value ? "true" : "false"
+              );
+            };
+
+            desktopGroup.addEventListener("mouseenter", () =>
+              setExpanded(true)
+            );
+            desktopGroup.addEventListener("mouseleave", () =>
+              setExpanded(false)
+            );
+            desktopGroup.addEventListener("focusin", () => setExpanded(true));
+            desktopGroup.addEventListener("focusout", (event) => {
+              const next = event.relatedTarget;
+              if (!next || !desktopGroup.contains(next)) setExpanded(false);
+            });
+          }
+        </script>
+
+        <!-- BACK TO TOP -->
+        <script>
+          (function () {
+            const backToTop = document.getElementById("backToTop");
+            if (!backToTop) return;
+
+            const toggle = () => {
+              backToTop.classList.toggle("hidden", window.scrollY < 400);
+            };
+
+            backToTop.addEventListener("click", () => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            toggle();
+            window.addEventListener("scroll", toggle, {
+              passive: true,
+            });
+          })();
+        </script>
+
+        <script>
+          (() => {
+            const stage = document.getElementById("heroStage");
+            if (!stage) return;
+
+            const prefersReduced = window.matchMedia(
+              "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+            const motionDuration = 2600;
+            const stillDuration = 3200;
+            const slideDuration = motionDuration + stillDuration;
+            const fadeDuration = 800;
+
+            const phoneRiseDuration = 700;
+            const phoneTick = 450;
+            const phoneStillDuration = 3600;
+
+            let idx = 0;
+            const modes = ["top", "bottom", "center"];
+
+            const slides = [
+              {
+                type: "phonesRow",
+                phones: [
+                  {
+                    src: "1.png",
+                    fallback:
+                      "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/1.png",
+                  },
+                  {
+                    src: "2.png",
+                    fallback:
+                      "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/2.png",
+                  },
+                  {
+                    src: "3.png",
+                    fallback:
+                      "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/3.png",
+                  },
+                  {
+                    src: "4.png",
+                    fallback:
+                      "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/4.png",
+                  },
+                  {
+                    src: "5.png",
+                    fallback:
+                      "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/5.png",
+                  },
+                ],
+              },
+              {
+                type: "image",
+                src: "assets/portfolio-images/digital_design.jpg",
+                alt: "Digital design mockup showing L by Lian across multiple Apple devices.",
+                fallback:
+                  "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/digital_design.jpg",
+                speedFactor: 0.6,
+                fit: "auto",
+                bg: "#050608",
+              },
+              {
+                type: "image",
+                src: "sheffield-ui-ux-web-designer-photographer-garden-urban-oasis.jpg",
+                alt: "Soft summer light over a tranquil urban garden",
+                fallback:
+                  "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/sheffield-ui-ux-web-designer-photographer-garden-urban-oasis.jpg",
+              },
+            ];
+
+            const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+            function showHeroPlaceholder() {
+              stage.innerHTML = `
+      <div class="absolute inset-0 flex items-center justify-center px-6 text-center">
+        <div class="rounded-2xl bg-white/70 ring-1 ring-black/10 px-5 py-4 backdrop-blur">
+          <p class="text-sm md:text-base text-brand-black font-semibold">Preview unavailable</p>
+          <p class="mt-1 text-xs md:text-sm text-brand-gray">Hero images couldn’t be loaded.</p>
+        </div>
+      </div>
+    `;
+            }
+
+            function makeFrame(source) {
+              const isContain = source.fit === "contain";
+
+              const wrap = document.createElement("figure");
+              wrap.className = isContain
+                ? "absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center"
+                : "absolute inset-0 w-full h-full overflow-hidden";
+
+              if (source.bg) wrap.style.backgroundColor = source.bg;
+
+              const img = document.createElement("img");
+              img.src = source.src;
+              img.alt = source.alt || "";
+              img.loading = "eager";
+              img.decoding = "async";
+
+              if (isContain) {
+                wrap.style.padding = "clamp(12px, 3vw, 28px)";
+                img.className =
+                  "w-full h-full object-contain will-change-transform";
+                img.style.maxWidth = "1400px";
+                img.style.maxHeight = "100%";
+              } else {
+                img.className =
+                  "absolute inset-0 w-full h-full object-cover will-change-transform";
+              }
+
+              wrap.appendChild(img);
+              return { wrap, img };
+            }
+
+            async function showImage(slide, mode) {
+              const source =
+                slide && typeof slide === "object" ? slide : { src: slide };
+
+              stage.style.backgroundImage = "none";
+              stage.style.backgroundColor = source.bg || "#050608";
+
+              const speedFactor = source.speedFactor || 1;
+              const totalSlideDuration = slideDuration * speedFactor;
+              const motionMs = motionDuration * speedFactor;
+
+              const { wrap, img } = makeFrame(source);
+              stage.innerHTML = "";
+              stage.appendChild(wrap);
+
+              const loadOk = await new Promise((resolve) => {
+                const done = (ok) => resolve(ok);
+                img.onload = () => done(true);
+
+                if (source.fallback) {
+                  img.onerror = () => {
+                    img.onerror = null;
+                    img.src = source.fallback;
+
+                    img.onload = () => done(true);
+                    img.onerror = () => done(false);
+                  };
+                } else {
+                  img.onerror = () => done(false);
+                }
+              });
+
+              if (!loadOk) {
+                showHeroPlaceholder();
+                await wait(totalSlideDuration);
+                return;
+              }
+
+              if (!prefersReduced) {
+                const common = {
+                  duration: motionMs,
+                  easing: "cubic-bezier(.2,.8,.2,1)",
+                  fill: "both",
+                };
+
+                if (mode === "top") {
+                  img.animate(
+                    [
+                      {
+                        transform: "translate3d(0,-30%,0) scale(1.05)",
+                        opacity: 0,
+                      },
+                      {
+                        transform: "translate3d(0,0,0) scale(1)",
+                        opacity: 1,
+                      },
+                    ],
+                    common
+                  );
+                } else if (mode === "bottom") {
+                  img.animate(
+                    [
+                      {
+                        transform: "translate3d(0,30%,0) scale(1.05)",
+                        opacity: 0,
+                      },
+                      {
+                        transform: "translate3d(0,0,0) scale(1)",
+                        opacity: 1,
+                      },
+                    ],
+                    common
+                  );
+                } else {
+                  wrap.animate(
+                    [
+                      { clipPath: "inset(50% 0 50% 0)", opacity: 0 },
+                      { clipPath: "inset(0 0 0 0)", opacity: 1 },
+                    ],
+                    common
+                  );
+
+                  img.animate(
+                    [{ transform: "scale(1.06)" }, { transform: "scale(1)" }],
+                    {
+                      duration: motionMs,
+                      easing: "ease-out",
+                      fill: "both",
+                    }
+                  );
+                }
+              }
+
+              const visibleDuration = Math.max(
+                0,
+                totalSlideDuration - fadeDuration
+              );
+              await wait(visibleDuration);
+
+              wrap.animate([{ opacity: 1 }, { opacity: 0 }], {
+                duration: fadeDuration,
+                easing: "cubic-bezier(.2,.8,.2,1)",
+                fill: "forwards",
+              });
+
+              await wait(fadeDuration);
+            }
+
+            function setPhonesBackground() {
+              const local = "03-evening-pathway-detail.jpg";
+              const fallback =
+                "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/03-evening-pathway-detail.jpg";
+
+              stage.style.backgroundSize = "cover";
+              stage.style.backgroundPosition = "center";
+              stage.style.backgroundRepeat = "no-repeat";
+
+              const bg = new Image();
+              bg.onload = () =>
+                (stage.style.backgroundImage = `url('${local}')`);
+              bg.onerror = () =>
+                (stage.style.backgroundImage = `url('${fallback}')`);
+              bg.src = local;
+            }
+
+            async function showPhonesRow(phones) {
+              stage.innerHTML = "";
+              setPhonesBackground();
+
+              const isSmall = window.matchMedia("(max-width: 640px)").matches;
+              const isMedium = window.matchMedia("(max-width: 1024px)").matches;
+
+              const visiblePhones = isSmall
+                ? phones.slice(0, 2)
+                : isMedium
+                ? phones.slice(0, 3)
+                : phones;
+
+              const row = document.createElement("div");
+              row.className =
+                "relative w-full h-full flex items-center justify-center gap-[clamp(0.75rem,2vw,2.5rem)]";
+              stage.appendChild(row);
+
+              const tick = prefersReduced ? 0 : phoneTick;
+
+              const results = await Promise.all(
+                visiblePhones.map((phone, i) => {
+                  const ph = document.createElement("div");
+                  ph.className =
+                    "phone w-[42vw] max-w-[240px] min-w-[140px] aspect-[9/19.5] bg-black/70 overflow-hidden rounded-[1.8rem] shadow-xl opacity-0";
+
+                  const img = document.createElement("img");
+                  img.src = phone.src;
+                  img.alt = "";
+                  img.loading = "eager";
+                  img.decoding = "async";
+                  img.className = "w-full h-full object-cover";
+
+                  const loaded = new Promise((resolve) => {
+                    img.onload = () => resolve(true);
+
+                    if (phone.fallback) {
+                      img.onerror = () => {
+                        img.onerror = null;
+                        img.src = phone.fallback;
+
+                        img.onload = () => resolve(true);
+                        img.onerror = () => resolve(false);
+                      };
+                    } else {
+                      img.onerror = () => resolve(false);
+                    }
+                  });
+
+                  ph.appendChild(img);
+                  row.appendChild(ph);
+
+                  if (!prefersReduced) {
+                    ph.animate(
+                      [
+                        {
+                          transform: "translate3d(0,40px,0) scale(.95)",
+                          opacity: 0,
+                        },
+                        {
+                          transform: "translate3d(0,0,0) scale(1)",
+                          opacity: 1,
+                        },
+                      ],
+                      {
+                        duration: phoneRiseDuration,
+                        delay: i * tick,
+                        easing: "cubic-bezier(.2,.8,.2,1)",
+                        fill: "forwards",
+                      }
+                    );
+                  } else {
+                    ph.style.opacity = 1;
+                  }
+
+                  return loaded;
+                })
+              );
+
+              if (!results.some(Boolean)) {
+                showHeroPlaceholder();
+                await wait(phoneRiseDuration + phoneStillDuration);
+                return;
+              }
+
+              const total =
+                (visiblePhones.length - 1) * tick +
+                phoneRiseDuration +
+                phoneStillDuration;
+              const visibleDuration = Math.max(0, total - fadeDuration);
+              await wait(visibleDuration);
+
+              row.animate([{ opacity: 1 }, { opacity: 0 }], {
+                duration: fadeDuration,
+                easing: "cubic-bezier(.2,.8,.2,1)",
+                fill: "forwards",
+              });
+
+              await wait(fadeDuration);
+            }
+
+            async function loop() {
+              const s = slides[idx % slides.length];
+              let mode = modes[idx % modes.length];
+
+              if (s.type === "image" && s.fit === "contain") mode = "center";
+
+              if (document.visibilityState === "hidden") {
+                await wait(slideDuration);
+              } else if (s.type === "phonesRow") {
+                await showPhonesRow(s.phones);
+              } else {
+                await showImage(s, mode);
+              }
+
+              idx++;
+              requestAnimationFrame(loop);
+            }
+
+            (async () => {
+              const first = slides[0];
+              let mode = modes[0];
+
+              if (first.type === "image" && first.fit === "contain")
+                mode = "center";
+
+              if (first.type === "phonesRow") await showPhonesRow(first.phones);
+              else await showImage(first, mode);
+
+              idx = 1;
+              requestAnimationFrame(loop);
+            })();
+          })();
+        </script>
+
+        <!-- TESTIMONIALS -->
+        <script>
+          (function () {
+            const quotesEl = document.getElementById("quotes");
+            const prevBtn = document.getElementById("quotePrev");
+            const nextBtn = document.getElementById("quoteNext");
+            if (!quotesEl || !prevBtn || !nextBtn) return;
+
+            const testimonials = [
+              {
+                quote:
+                  "Work that goes above and beyond the brief, showing depth of thinking and a clear grounding in real-world design practice.",
+                author: "Antony Conboy",
+                role: "Mentor, CourseCareers UI/UX Design",
+                img: "antonyconboy.png",
+                fallback:
+                  "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/antonyconboy.png",
+                alt: "Portrait of Antony Conboy",
+                noFrame: true,
+              },
+              {
+                quote:
+                  "I don’t know any other photographers who can also upload the images onto a website with all the correct SEO and file size.",
+                author: "Catriona Rowbotham",
+                role: "Catriona Rowbotham Garden Designs",
+                img: "Catriona Rowbotham-1.jpg",
+                fallback:
+                  "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/Catriona%20Rowbotham-1.jpg",
+                alt: "Portrait of Catriona Rowbotham",
+                noFrame: false,
+              },
+              {
+                quote:
+                  "Lian est une photographe d’une grande sensibilité. Elle sait mettre en valeur ses sujets et trouver le détail qui rend l’image unique. Au Madame Figaro je lui ai confié plusieurs mandats; fiable, responsable et excellente dans ses relations avec la rédaction et ses sujets.",
+                translation:
+                  "Lian is a photographer of great sensitivity. She knows how to showcase her subjects and find the small detail that makes an image unique. At Madame Figaro I entrusted her with several assignments; reliable, responsible, and excellent with the editorial team and her subjects.",
+                author: "Sophie Perraudin",
+                role: "Madame Figaro",
+                img: "Sophie Perraudin-1.jpg",
+                fallback:
+                  "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/Sophie%20Perraudin-1.jpg",
+                alt: "Portrait of Sophie Perraudin",
+                noFrame: false,
+              },
+              {
+                quote:
+                  "One word that stands out is how Lian works: simply. She listens to the brief and turns it into storytelling images. Her easy-going, kind energy warms even stern sitters. Even with awful weather or tight locations, she solves problems fast and delivers beautiful photographs.",
+                author: "Christian Kirk Jensen",
+                role: "Danish Pastry Design",
+                img: "Christian Kirk Jensen -1.jpg",
+                fallback:
+                  "https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/Christian%20Kirk%20Jensen%20-1.jpg",
+                alt: "Portrait of Christian Kirk Jensen",
+                noFrame: false,
+              },
+            ];
+
+            let index = 0;
+            let useTranslation = false;
+
+            function escapeHtml(s) {
+              return String(s)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#39;");
+            }
+
+            function slideMarkup(t) {
+              const text =
+                useTranslation && t.translation ? t.translation : t.quote;
+
+              const toggle = t.translation
+                ? `<button
+                      id="toggle-translation"
+                      type="button"
+                      class="ml-3 inline-flex items-center justify-center h-9 w-9 rounded-full bg-black/5 text-lg text-brand-black hover:bg-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50"
+                      aria-label="${
+                        useTranslation ? "Voir en français" : "Read in English"
+                      }"
+                      title="${
+                        useTranslation ? "Voir en français" : "Read in English"
+                      }"
+                    >
+                      <span aria-hidden="true">${
+                        useTranslation ? "🇫🇷" : "🇬🇧"
+                      }</span>
+                    </button>`
+                : "";
+
+              const imgClass =
+                "h-16 w-16 md:h-20 md:w-20 rounded-full object-cover " +
+                (t.noFrame ? "" : "ring-2 ring-black/10 shadow-md");
+
+              const fallbackAttr = t.fallback
+                ? ` onerror="this.onerror=null;this.src='${t.fallback}'"`
+                : "";
+
+              return `
+                <figure class="max-w-none">
+                  <div class="qwrap">
+                    <span class="qmark">“</span>
+                    <blockquote class="quote-close text-brand-black font-medium tracking-tight leading-[1.2] text-xl sm:text-3xl md:text-4xl lg:text-5xl w-full">
+                      ${escapeHtml(text)}
+                    </blockquote>
+                  </div>
+        
+                  <figcaption class="mt-6 flex items-center gap-4 text-brand-black/70 text-sm md:text-base">
+                    <img
+                      src="${escapeHtml(t.img)}"
+                      alt="${escapeHtml(t.alt)}"
+                      loading="lazy"
+                      decoding="async"
+                      class="${imgClass}"${fallbackAttr}
+                    />
+                    <div>
+                      <span class="font-semibold text-brand-black">${escapeHtml(
+                        t.author
+                      )}</span>
+                      <span class="mx-1 text-brand-black/50">—</span>
+                      <span class="text-brand-black/70">${escapeHtml(
+                        t.role
+                      )}</span>
+                    </div>
+                    ${toggle}
+                  </figcaption>
+                </figure>
+              `;
+            }
+
+            function render(i) {
+              quotesEl.innerHTML = slideMarkup(testimonials[i]);
+
+              const toggleBtn = document.getElementById("toggle-translation");
+              if (toggleBtn) {
+                toggleBtn.addEventListener("click", () => {
+                  useTranslation = !useTranslation;
+                  render(i);
+                });
+              }
+            }
+
+            function goNext() {
+              index = (index + 1) % testimonials.length;
+              useTranslation = false;
+              render(index);
+            }
+
+            function goPrev() {
+              index = (index - 1 + testimonials.length) % testimonials.length;
+              useTranslation = false;
+              render(index);
+            }
+
+            prevBtn.addEventListener("click", goPrev);
+            nextBtn.addEventListener("click", goNext);
+
+            render(index);
+          })();
+        </script>
+
+        <script>
+          (function () {
+            const v = document.getElementById("whoIAmVideo");
+            if (!v) return;
+
+            const reduceMotion = window.matchMedia(
+              "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+            const show = () => v.classList.add("opacity-100");
+            v.addEventListener("loadeddata", show, { once: true });
+            v.addEventListener("canplay", show, { once: true });
+
+            if (v.readyState >= 2) show();
+
+            if (reduceMotion) {
+              v.pause();
+              v.removeAttribute("autoplay");
+              v.controls = true;
+              v.classList.add("opacity-100");
+            }
+          })();
+        </script>
+      </div>
+    </div>
+  </body>
 </html>
-
-
-

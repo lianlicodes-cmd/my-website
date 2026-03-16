@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>
+      About Lian Li · UX/UI Web Designer and Garden Photographer · L by Lian
+    </title>
+
+    <link rel="canonical" href="https://lbylian.com/about.html" />
+
+    <!-- Meta description for Google & AI search -->
+    <meta
+      name="description"
+      content="About Lian Li, a UX/UI web designer and garden photographer behind L by Lian. Calm, story-led websites, natural light garden photography, and image SEO and file preparation for artists and creative studios in Sheffield, London and Paris."
+    />
+
+    <!-- Open Graph (social sharing) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="L by Lian" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="About Lian Li · L by Lian" />
+    <meta
+      property="og:description"
+      content="Learn more about Lian Li, the UX/UI web designer and garden photographer behind L by Lian, working with artists, garden designers and creative studios in Sheffield, London and Paris."
+    />
+    <meta property="og:url" content="https://lbylian.com/about.html" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/sheffield-ui-ux-web-designer-photographer-garden-urban-oasis.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="Soft summer light over a tranquil urban garden photographed by L by Lian."
+    />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About Lian Li · L by Lian" />
+    <meta
+      name="twitter:description"
+      content="UX/UI web design and garden photography for artists, garden designers and creative studios in Sheffield, London and Paris."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/sheffield-ui-ux-web-designer-photographer-garden-urban-oasis.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Soft summer light over a tranquil urban garden photographed by L by Lian."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="theme-color" content="#bff47b" />
+
+    <!-- Fonts (Syne only, matching homepage) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                black: "#010101",
+                carrara: "#f1f2ec",
+                sulu: "#bff47b",
+                gray: "#444443",
+                dust: "#949492",
+                accent: "#05e0e9",
+              },
+            },
+            fontFamily: {
+              sans: ['"Syne"', "system-ui", "sans-serif"],
+              display: ['"Syne"', "system-ui", "sans-serif"],
+              serif: ["serif"],
+            },
+            borderRadius: { xl: "1.25rem", "2xl": "1.5rem" },
+          },
+        },
+      };
+    </script>
+
+    <!-- Shared styles -->
+    <style>
+      :root {
+        --frame: 2mm;
+      }
+
+      .font-hand {
+        font-family: "Syne", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        font-synthesis: none;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        white-space: nowrap;
+        clip: rect(0, 0, 0, 0);
+      }
+
+      .rule-squares {
+        --sq: 1.5mm;
+        --rule: #bff47b;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+      .rule-squares::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: var(--sq);
+        background: repeating-linear-gradient(
+          90deg,
+          var(--rule) 0 calc(var(--sq)),
+          transparent calc(var(--sq)) calc(var(--sq) * 2)
+        );
+        pointer-events: none;
+      }
+      @media (min-width: 1024px) {
+        .rule-squares {
+          --sq: 1.95mm;
+        }
+      }
+
+      .poster {
+        font-size: clamp(2.25rem, 7.5vw, 5rem);
+        line-height: 1.1;
+      }
+
+      .edge-x {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      @media (min-width: 640px) {
+        .edge-x {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .edge-x {
+          padding-left: 1cm;
+          padding-right: 1cm;
+        }
+      }
+
+      .wrap {
+        max-width: 90rem;
+      }
+      @media (min-width: 1280px) {
+        .wrap {
+          max-width: 100rem;
+        }
+      }
+      @media (min-width: 1536px) {
+        .wrap {
+          max-width: 112rem;
+        }
+      }
+
+      .font-headline {
+        font-family: "Syne", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .cta-triangle {
+        margin-left: 1.1rem;
+        display: inline-block;
+        width: clamp(2.8rem, 7vw, 3.6rem);
+        height: clamp(2.8rem, 7vw, 3.6rem);
+      }
+      .cta-triangle svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .group:hover .group-hover\:translate-y-0,
+        .group:focus-within .group-focus-within\:translate-y-0,
+        .group:active .group-active\:translate-y-0,
+        .group:hover .group-hover\:-translate-y-full,
+        .group:focus-within .group-focus-within\:-translate-y-full,
+        .group:active .group-active\:-translate-y-full {
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .marquee-track {
+        animation: marquee 12s linear infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track {
+          animation: none;
+        }
+      }
+
+      .fullbleed-lines {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        border: none;
+        background: transparent;
+      }
+
+      .cta-title,
+      .cta-email {
+        color: var(--cta);
+      }
+
+      .cta-gutters {
+        width: 100%;
+      }
+
+      .hero-16x9 {
+        aspect-ratio: 16 / 9;
+      }
+
+      /* ==========================
+         SAFARI-STABLE BELT
+         (no cropping, stable height)
+         ========================== */
+
+      @keyframes belt {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          transform: translate3d(-50%, 0, 0);
+        }
+      }
+
+      .belt {
+        position: relative;
+        overflow: hidden !important;
+        height: clamp(190px, 26vh, 240px);
+        contain: layout paint;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+
+      .belt::before,
+      .belt::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .belt::before {
+        left: 0;
+        background: linear-gradient(
+          to right,
+          rgba(241, 242, 236, 1),
+          rgba(241, 242, 236, 0)
+        );
+      }
+      .belt::after {
+        right: 0;
+        background: linear-gradient(
+          to left,
+          rgba(241, 242, 236, 1),
+          rgba(241, 242, 236, 0)
+        );
+      }
+
+      .belt-track {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center;
+        height: 100%;
+        width: max-content;
+        animation: belt 32s linear infinite;
+        will-change: transform;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+
+      .belt-set {
+        display: flex !important;
+        flex: 0 0 auto !important;
+        flex-shrink: 0 !important;
+        align-items: center;
+        height: 100%;
+        gap: 28px;
+        padding: 0 14px;
+        margin: 0;
+        list-style: none;
+      }
+
+      .belt-item {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      .belt-item img {
+        height: 140px;
+        width: auto;
+        max-width: 260px;
+        display: block;
+        object-fit: contain;
+        object-position: center;
+        background: white;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+      }
+
+      @media (min-width: 768px) {
+        .belt {
+          height: clamp(210px, 28vh, 260px);
+        }
+
+        .belt-item img {
+          height: 165px;
+          width: auto;
+          max-width: 320px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .belt {
+          height: clamp(230px, 30vh, 290px);
+        }
+
+        .belt-item img {
+          height: 185px;
+          width: auto;
+          max-width: 380px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .belt {
+          overflow-x: auto !important;
+        }
+        .belt-track {
+          animation: none !important;
+          transform: none !important;
+          -webkit-transform: none !important;
+        }
+        .belt::before,
+        .belt::after {
+          display: none !important;
+        }
+      }
+    </style>
+
+<!-- Person schema -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lian Li",
+    "alternateName": "L by Lian",
+    "url": "https://lbylian.com/",
+    "jobTitle": "UX/UI web designer and garden photographer",
+  
+    "worksFor": {
+      "@type": "Organization",
+      "name": "L by Lian",
+      "url": "https://lbylian.com/"
+    },
+  
+    "description": "L by Lian creates UX/UI web design, garden photography and image SEO and file preparation for artists, designers and garden projects in Sheffield, London and Paris.",
+  
+    "knowsAbout": [
+      "UX/UI web design",
+      "garden photography",
+      "garden photographer",
+      "image SEO",
+      "file preparation",
+      "web designer for creatives",
+      "websites for artists",
+      "websites for creative studios"
+    ],
+  
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sheffield",
+      "addressCountry": "UK"
+    },
+  
+    "sameAs": [
+      "https://www.instagram.com/lbylian/",
+      "https://www.linkedin.com/in/lianli23/"
+    ]
+  }
+  </script>
+  </head>
+
+  <body
+    class="font-sans antialiased text-[17px] leading-[1.65] text-brand-gray"
+  >
+    <div class="min-h-[100dvh] bg-brand-sulu p-[var(--frame)]">
+      <div
+        class="bg-brand-carrara text-brand-gray min-h-[calc(100dvh-2*var(--frame))] relative"
+      >
+        <header
+          class="sticky top-0 z-30 bg-gradient-to-b from-brand-carrara/95 to-white/90 backdrop-blur"
+        >
+          <div class="edge-x">
+            <div
+              class="wrap mx-auto flex items-center justify-between pt-1 pb-[3px]"
+            >
+              <div class="m-0">
+                <a
+                  href="index.html"
+                  class="inline-flex items-center gap-2 md:gap-3 whitespace-nowrap group -ml-3 md:-ml-4 lg:-ml-5"
+                  aria-label="L by Lian"
+                >
+                  <svg
+                    class="shrink-0 block h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 text-brand-black"
+                    viewBox="0 0 320 240"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="120"
+                      y="40"
+                      width="56"
+                      height="200"
+                      rx="6"
+                      fill="currentColor"
+                    />
+                    <rect
+                      x="200"
+                      y="176"
+                      width="64"
+                      height="64"
+                      rx="4"
+                      fill="currentColor"
+                    />
+                    <circle cx="232" cy="150" r="18" fill="#bff47b" />
+                  </svg>
+
+                  <span
+                    class="shrink-0 font-hand text-brand-gray text-[18px] md:text-[19px] leading-none tracking-[0.04em]"
+                  >
+                    by&nbsp;Lian
+                  </span>
+                </a>
+              </div>
+
+              <nav
+                aria-label="Primary"
+                class="hidden lg:flex items-center gap-6 text-[15px]"
+              >
+                <a
+                  href="index.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >Home</a
+                >
+
+                <a
+                  href="web-design-case-studies.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                >
+                  UI<span class="sr-only"> and </span
+                  ><span aria-hidden="true" class="text-brand-accent">/</span>UX
+                  Web Design
+                </a>
+
+                <div class="relative group">
+                  <button
+                    class="inline-flex items-center gap-1 text-brand-black hover:text-brand-sulu focus:outline-none"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    type="button"
+                  >
+                    <span>Photography</span>
+                    <svg
+                      class="h-4 w-4 transition-transform duration-150 group-focus-within:rotate-180 group-hover:rotate-180 text-brand-accent"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 011.04 1.08l-4.23 3.35a.75.75 0 01-.94 0L5.21 8.31a.75.75 0 01.02-1.1z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <div
+                    class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 absolute left-0 mt-2 min-w-[220px] rounded-2xl bg-white shadow-lg ring-1 ring-black/10 transition-all"
+                  >
+                    <ul class="py-2 text-[14px]">
+                      <li>
+                        <a
+                          href="collections-gardens.html"
+                          class="block px-4 py-2 text-brand-black hover:bg-black/5 rounded-xl"
+                        >
+                          Gardens
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <a
+                  href="shop.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >Shop</a
+                >
+                <a
+                  href="about.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >About</a
+                >
+                <a
+                  href="contact.html"
+                  class="text-brand-black hover:text-brand-sulu"
+                  >Contact</a
+                >
+              </nav>
+
+              <button
+                id="menuBtn"
+                class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-brand-accent hover:bg-brand-gray/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50"
+                aria-label="Open menu"
+                aria-controls="siteMenu"
+                aria-expanded="false"
+                type="button"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 7h16M4 12h16M4 17h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <nav
+          id="siteMenu"
+          class="fixed z-50 top-[var(--frame)] right-[var(--frame)] h-[calc(100dvh-2*var(--frame))] w-72 max-w-[80vw] bg-brand-carrara shadow-xl translate-x-full transition-transform duration-150"
+          aria-label="Site menu"
+        >
+          <div class="flex h-full flex-col">
+            <div
+              class="flex items-center justify-between p-4 border-b border-brand-accent/40"
+            >
+              <span class="text-base font-display text-brand-black">Menu</span>
+              <button
+                id="menuClose"
+                type="button"
+                class="p-2 rounded-full text-brand-accent hover:bg-brand-gray/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
+                aria-label="Close menu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <ul
+              class="flex-grow overflow-y-auto px-4 py-5 space-y-2.5 text-[15px] leading-6"
+            >
+              <li>
+                <a
+                  href="index.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="web-design-case-studies.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >UI/UX Web Design</a
+                >
+              </li>
+
+              <li>
+                <button
+                  id="disclosureBtn"
+                  type="button"
+                  class="w-full flex items-center justify-between py-1.5 text-brand-black hover:text-brand-sulu"
+                  aria-expanded="false"
+                  aria-controls="disclosurePanel"
+                >
+                  <span>Photography</span>
+                  <svg
+                    class="h-4 w-4 text-brand-accent transition-transform duration-150"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.17l3.71-2.94a.75.75 0 011.04 1.08l-4.23 3.35a.75.75 0 01-.94 0L5.21 8.31a.75.75 0 01.02-1.1z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  id="disclosurePanel"
+                  class="max-h-0 overflow-hidden transition-[max-height] duration-150 ease-in-out"
+                >
+                  <ul
+                    class="pl-4 py-1 space-y-2 border-l border-brand-accent/40"
+                  >
+                    <li>
+                      <a
+                        href="collections-gardens.html"
+                        class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                        >Gardens</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li>
+                <a
+                  href="shop.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >Shop</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="block py-1.5 text-brand-black hover:text-brand-sulu"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div
+          id="menuOverlay"
+          class="fixed z-40 inset-[var(--frame)] bg-brand-black/60 opacity-0 pointer-events-none transition-opacity duration-150"
+          aria-hidden="true"
+        ></div>
+
+        <main>
+          <div class="edge-x">
+            <div class="wrap mx-auto pt-8 md:pt-10">
+              <div
+                class="relative overflow-hidden rounded-2xl bg-brand-black shadow-sm ring-1 ring-black/10"
+              >
+                <div class="hero-16x9">
+                  <video
+                    id="aboutHeroVideo"
+                    class="w-full h-full object-cover opacity-0 transition-opacity duration-500"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                    poster="https://lianlicodes-cmd.github.io/my-website/about-me-poster.jpg"
+                    aria-label="Short looping studio video of Lian Li at work"
+                  >
+                    <source
+                      src="https://lianlicodes-cmd.github.io/my-website/about-me-web.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+
+                <div
+                  class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"
+                  aria-hidden="true"
+                ></div>
+              </div>
+
+              <div
+                class="mt-5 h-[2px] w-40 bg-brand-accent"
+                aria-hidden="true"
+              ></div>
+
+              <h1
+                class="mt-6 md:mt-8 font-headline text-brand-black text-[clamp(2.1rem,4.6vw,3rem)] leading-tight"
+              >
+                Web Design + Garden Photography
+              </h1>
+            </div>
+          </div>
+
+          <section class="edge-x">
+            <div class="wrap mx-auto py-10 md:py-12">
+              <p
+                class="max-w-4xl text-[clamp(1.05rem,2.2vw,1.25rem)] leading-relaxed text-brand-black"
+              >
+                I’m Lian Li, the designer and photographer behind L by Lian. I
+                create calm, image-led websites and photograph gardens with an
+                editorial eye, shaping digital spaces that feel clear,
+                intentional, and beautifully structured. With over 20 years
+                working as an advertising and editorial photographer in Paris
+                and London, I approach web design with the eye of an art
+                director — clarifying your story, refining your identity and
+                translating it into a considered online presence.
+              </p>
+
+              <p class="mt-4 max-w-4xl text-black/70">
+                Lian Li works with artists, creative studios, landscape
+                architects and garden designers who need a curated and clear
+                online presence. Services include UX/UI web design, garden
+                photography, and image SEO and file preparation.
+              </p>
+
+              <div class="mt-6 max-w-4xl">
+                <ul
+                  class="flex flex-wrap gap-x-4 gap-y-2 text-[13px] leading-5 text-brand-black/70"
+                  aria-label="Credentials and location"
+                >
+                  <li class="inline-flex items-center gap-2">
+                    <span
+                      class="h-1.5 w-1.5 rounded-full bg-brand-accent"
+                    ></span>
+                    <span
+                      ><span class="text-brand-black/80">Experience:</span> 20+
+                      years editorial and advertising</span
+                    >
+                  </li>
+                  <li class="inline-flex items-center gap-2">
+                    <span
+                      class="h-1.5 w-1.5 rounded-full bg-brand-accent"
+                    ></span>
+                    <span
+                      ><span class="text-brand-black/80">Worked in:</span> Paris
+                      · London</span
+                    >
+                  </li>
+                  <li class="inline-flex items-center gap-2">
+                    <span
+                      class="h-1.5 w-1.5 rounded-full bg-brand-accent"
+                    ></span>
+                    <span
+                      ><span class="text-brand-black/80">Featured:</span>
+                      <em>Gardens Illustrated</em> (Digital)</span
+                    >
+                  </li>
+                  <li class="inline-flex items-center gap-2">
+                    <span
+                      class="h-1.5 w-1.5 rounded-full bg-brand-accent"
+                    ></span>
+                    <span
+                      ><span class="text-brand-black/80">Based:</span> Sheffield
+                      · projects across the UK and Europe</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr),360px] xl:grid-cols-[minmax(0,1fr),400px] lg:gap-10"
+              >
+                <div>
+                  <div class="space-y-4 max-w-3xl">
+                    <p>
+                      My garden photography is rooted in the quiet of UK and
+                      European landscapes and was recently featured in
+                      <em>Gardens Illustrated</em> (Digital). Earlier editorial
+                      and advertising work has appeared in titles including
+                      <em>Elle</em>, <em>Cosmopolitan</em>, <em>Libération</em>,
+                      <em>Madame Figaro</em> and <em>Vanity Fair</em>. I
+                      photograph in natural light and aim for a sensory, present
+                      feeling, as if you are truly there. I keep palettes
+                      authentic with natural colour and clean optics, with no
+                      distorted lens effects.
+                    </p>
+
+                    <p>
+                      In design, I obsess over attention to detail and calm
+                      navigation. I want every page to feel considered, paced,
+                      and easy to move through, with typography and imagery
+                      doing the heavy lifting.
+                    </p>
+
+                    <p>
+                      I do not use templates, visual clutter, or content for
+                      content’s sake. No noise, no filler, and no performative
+                      design. Just meaningful, story-led work shaped through
+                      genuine collaboration.
+                    </p>
+
+                    <p>
+                      I offer UX/UI website revamps and bespoke builds for
+                      artists and creative studios, alongside bespoke garden
+                      photography and image SEO plus file preparation, so your
+                      pages stay beautiful, fast, and easy to find.
+                    </p>
+                  </div>
+                </div>
+
+                <aside class="lg:sticky lg:top-24">
+                  <div class="rounded-2xl bg-white/55 ring-1 ring-black/5 p-6">
+                    <h2
+                      class="font-display text-lg font-semibold text-brand-black"
+                    >
+                      What I do
+                    </h2>
+                    <ul class="mt-3 space-y-2 text-[15px] text-brand-black/80">
+                      <li class="flex gap-2">
+                        <span class="text-brand-accent">•</span> UX/UI website
+                        revamps and bespoke builds
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="text-brand-accent">•</span> Garden
+                        photography in natural light
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="text-brand-accent">•</span> Image SEO and
+                        file preparation
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="text-brand-accent">•</span> Ongoing visual
+                        support for studios
+                      </li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </section>
+
+          <section class="edge-x mb-16 md:mb-24">
+            <div class="wrap mx-auto py-10 md:py-12">
+              <div class="max-w-2xl">
+                <h2
+                  class="font-display text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-brand-black"
+                >
+                  Editorial + Advertising Archive
+                </h2>
+                <p class="mt-2 text-black/70">
+                  Selected commissioned work across magazines, portraits, and
+                  editorials.
+                </p>
+              </div>
+
+              <section
+                class="mt-6 belt"
+                aria-label="A continuous strip of editorial and advertising work"
+              >
+                <div class="belt-track">
+                  <ul class="belt-set" aria-hidden="false">
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/20-ans-magazine-cheese-burger-fries-fashion-editorial-01-2.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/20-ans-magazine-cheese-burger-fries-fashion-editorial-01-2.jpg';"
+                        alt="Fashion editorial for 20 Ans magazine featuring burger and fries styling"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="high"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/biba-magazine-fashion-editorial-20-ans-04-18.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/biba-magazine-fashion-editorial-20-ans-04-18.jpg';"
+                        alt="Fashion editorial for Biba magazine"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/carrie-ostwald-living-north-resident-magazine-01-21.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/carrie-ostwald-living-north-resident-magazine-01-21.jpg';"
+                        alt="Carrie Ostwald portrait for Living North Resident magazine"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/london-fashion-week-street-style-editorial-02-14.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/london-fashion-week-street-style-editorial-02-14.jpg';"
+                        alt="Street style fashion at London Fashion Week"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/clementine-dupontavice-author-birdcage-portrait-fashion-editorial-01-3.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/clementine-dupontavice-author-birdcage-portrait-fashion-editorial-01-3.jpg';"
+                        alt="Portrait of Clementine Dupontavice with birdcage for fashion editorial"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/depeche-mode-editorial-magazine-01-19.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/depeche-mode-editorial-magazine-01-19.jpg';"
+                        alt="Depeche Mode portrait for magazine editorial"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/george-davis-portrait-you-magazine-01-20.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/george-davis-portrait-you-magazine-01-20.jpg';"
+                        alt="Portrait of George Davis for You Magazine"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/nova-magazine-cover-02-29.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/nova-magazine-cover-02-29.jpg';"
+                        alt="Nova Magazine fashion cover"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/ines-de-la-fressange-fifi-chachnil-editorial-madame-figaro-03-24.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/ines-de-la-fressange-fifi-chachnil-editorial-madame-figaro-03-24.jpg';"
+                        alt="Ines de la Fressange and Fifi Chachnil for Madame Figaro editorial"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/irina-volkonskii-red-shoes-artist-studio-fashion-editorial-01-5.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/irina-volkonskii-red-shoes-artist-studio-fashion-editorial-01-5.jpg';"
+                        alt="Fashion portrait of Irina Volkonskii in artist studio wearing red shoes"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/jenny-mannerheim-portrait-madame-figaro-01-22.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/jenny-mannerheim-portrait-madame-figaro-01-22.jpg';"
+                        alt="Portrait of Jenny Mannerheim for Madame Figaro"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/jessie-chorley-buddug-humphrey-designer-editorial-01-9.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/jessie-chorley-buddug-humphrey-designer-editorial-01-9.jpg';"
+                        alt="Portrait of Jessie Chorley and Buddug Humphrey for designer editorial"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/julia-fashion-editorial-nova-magazine-01-15.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/julia-fashion-editorial-nova-magazine-01-15.jpg';"
+                        alt="Fashion portrait of Julia for Nova Magazine editorial"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/lolita-lempicka-generational-portrait-madame-figaro-01-16.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/lolita-lempicka-generational-portrait-madame-figaro-01-16.jpg';"
+                        alt="Generational portrait of Lolita Lempicka for Madame Figaro"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/london-fashion-week-street-style-editorial-01-13.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/london-fashion-week-street-style-editorial-01-13.jpg';"
+                        alt="Street style portrait at London Fashion Week"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/madame-figaro-fashion-spread-portrait-01-23.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/madame-figaro-fashion-spread-portrait-01-23.jpg';"
+                        alt="Fashion portrait spread for Madame Figaro"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/nova-magazine-cover-spliff-smoking-issue-01-30.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/nova-magazine-cover-spliff-smoking-issue-01-30.jpg';"
+                        alt="Nova Magazine cover featuring smoking theme editorial"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/mademoiselle-magazine-fashion-editorial-01-25.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/mademoiselle-magazine-fashion-editorial-01-25.jpg';"
+                        alt="Fashion editorial for Mademoiselle magazine"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/martin-parr-shoes-editorial-madame-figaro-07jpg-11.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/martin-parr-shoes-editorial-madame-figaro-07jpg-11.jpg';"
+                        alt="Fashion editorial featuring shoes by Martin Parr for Madame Figaro"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/matthew-truscott-portrait-eurostar-magazine-01-10.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/matthew-truscott-portrait-eurostar-magazine-01-10.jpg';"
+                        alt="Portrait of Matthew Truscott for Eurostar Magazine"
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                  </ul>
+
+                  <ul class="belt-set" aria-hidden="true">
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/20-ans-magazine-cheese-burger-fries-fashion-editorial-01-2.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/20-ans-magazine-cheese-burger-fries-fashion-editorial-01-2.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/biba-magazine-fashion-editorial-20-ans-04-18.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/biba-magazine-fashion-editorial-20-ans-04-18.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/carrie-ostwald-living-north-resident-magazine-01-21.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/carrie-ostwald-living-north-resident-magazine-01-21.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/london-fashion-week-street-style-editorial-02-14.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/london-fashion-week-street-style-editorial-02-14.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/clementine-dupontavice-author-birdcage-portrait-fashion-editorial-01-3.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/clementine-dupontavice-author-birdcage-portrait-fashion-editorial-01-3.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/depeche-mode-editorial-magazine-01-19.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/depeche-mode-editorial-magazine-01-19.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/george-davis-portrait-you-magazine-01-20.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/george-davis-portrait-you-magazine-01-20.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/nova-magazine-cover-02-29.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/nova-magazine-cover-02-29.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/ines-de-la-fressange-fifi-chachnil-editorial-madame-figaro-03-24.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/ines-de-la-fressange-fifi-chachnil-editorial-madame-figaro-03-24.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/irina-volkonskii-red-shoes-artist-studio-fashion-editorial-01-5.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/irina-volkonskii-red-shoes-artist-studio-fashion-editorial-01-5.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/jenny-mannerheim-portrait-madame-figaro-01-22.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/jenny-mannerheim-portrait-madame-figaro-01-22.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/jessie-chorley-buddug-humphrey-designer-editorial-01-9.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/jessie-chorley-buddug-humphrey-designer-editorial-01-9.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/julia-fashion-editorial-nova-magazine-01-15.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/julia-fashion-editorial-nova-magazine-01-15.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/lolita-lempicka-generational-portrait-madame-figaro-01-16.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/lolita-lempicka-generational-portrait-madame-figaro-01-16.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/london-fashion-week-street-style-editorial-01-13.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/london-fashion-week-street-style-editorial-01-13.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/madame-figaro-fashion-spread-portrait-01-23.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/madame-figaro-fashion-spread-portrait-01-23.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/nova-magazine-cover-spliff-smoking-issue-01-30.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/nova-magazine-cover-spliff-smoking-issue-01-30.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/mademoiselle-magazine-fashion-editorial-01-25.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/mademoiselle-magazine-fashion-editorial-01-25.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/martin-parr-shoes-editorial-madame-figaro-07jpg-11.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/martin-parr-shoes-editorial-madame-figaro-07jpg-11.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+
+                    <li class="belt-item">
+                      <img
+                        src="assets/portfolio-images/matthew-truscott-portrait-eurostar-magazine-01-10.jpg"
+                        onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/lianlicodes-cmd/my-website/main/assets/portfolio-images/matthew-truscott-portrait-eurostar-magazine-01-10.jpg';"
+                        alt=""
+                        width="1200"
+                        height="1200"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <div class="mt-10 md:mt-14 mb-12 md:mb-16" aria-hidden="true">
+                <div class="h-[2px] w-full bg-brand-accent"></div>
+              </div>
+
+              <section class="pt-6 pb-16">
+                <div class="edge-x">
+                  <div class="wrap mx-auto">
+                    <div class="max-w-2xl mb-12">
+                      <h2
+                        class="font-display text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-brand-black"
+                      >
+                        How I work
+                      </h2>
+                      <p class="mt-3 text-black/70">
+                        A clear, collaborative process shaped around your work,
+                        your images and the way you want to be seen online.
+                        Whether I am building a new site or refining an existing
+                        one, the aim is always clarity, confidence and a website
+                        that supports your practice properly.
+                      </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-x-10 gap-y-12">
+                      <article>
+                        <div class="rule-squares pb-3 corner text-brand-black">
+                          01
+                        </div>
+                        <h3
+                          class="mt-3 font-display text-2xl font-semibold tracking-[-0.01em]"
+                        >
+                          Project direction
+                        </h3>
+                        <p class="mt-1 text-black/70">
+                          We begin with your work, your goals, your images and
+                          your references. This gives the project a clear
+                          direction and helps shape the structure of the site
+                          from the start.
+                        </p>
+                      </article>
+
+                      <article>
+                        <div class="rule-squares pb-3 corner text-brand-black">
+                          02
+                        </div>
+                        <h3
+                          class="mt-3 font-display text-2xl font-semibold tracking-[-0.01em]"
+                        >
+                          Website structure
+                        </h3>
+                        <p class="mt-1 text-black/70">
+                          I organise the pages, navigation and hierarchy so your
+                          work feels easy to explore, easy to understand and
+                          comfortable to move through.
+                        </p>
+                      </article>
+
+                      <article>
+                        <div class="rule-squares pb-3 corner text-brand-black">
+                          03
+                        </div>
+                        <h3
+                          class="mt-3 font-display text-2xl font-semibold tracking-[-0.01em]"
+                        >
+                          Visual design
+                        </h3>
+                        <p class="mt-1 text-black/70">
+                          Typography, spacing, imagery and visual rhythm are
+                          designed with care so the site feels calm, considered
+                          and true to your identity. The design supports the
+                          work rather than competing with it.
+                        </p>
+                      </article>
+
+                      <article>
+                        <div class="rule-squares pb-3 corner text-brand-black">
+                          04
+                        </div>
+                        <h3
+                          class="mt-3 font-display text-2xl font-semibold tracking-[-0.01em]"
+                        >
+                          Image preparation
+                        </h3>
+                        <p class="mt-1 text-black/70">
+                          Images are prepared carefully for the web so they
+                          remain beautiful while loading well. This includes
+                          optimisation, file naming and image SEO to help your
+                          work perform properly online.
+                        </p>
+                      </article>
+
+                      <article>
+                        <div class="rule-squares pb-3 corner text-brand-black">
+                          05
+                        </div>
+                        <h3
+                          class="mt-3 font-display text-2xl font-semibold tracking-[-0.01em]"
+                        >
+                          Build and refinement
+                        </h3>
+                        <p class="mt-1 text-black/70">
+                          The site is built and refined with attention to
+                          performance, responsiveness and accessibility, so
+                          every page holds together cleanly across devices.
+                        </p>
+                      </article>
+
+                      <article>
+                        <div class="rule-squares pb-3 corner text-brand-black">
+                          06
+                        </div>
+                        <h3
+                          class="mt-3 font-display text-2xl font-semibold tracking-[-0.01em]"
+                        >
+                          Launch and guidance
+                        </h3>
+                        <p class="mt-1 text-black/70">
+                          Before launch we review everything together. You
+                          receive clear guidance for next steps and future
+                          updates, so the site feels ready to support your work
+                          long-term.
+                        </p>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+        </main>
+
+       <!-- FOOTER -->
+       <footer
+       id="contact"
+       class="border-t border-brand-accent/30 bg-white/40"
+     >
+       <div class="edge-x">
+         <div class="wrap mx-auto py-10 md:py-12">
+           <div class="flex flex-col items-center gap-8">
+             <!-- Logo -->
+             <div class="flex justify-center">
+               <svg
+                 class="block h-12 w-12 text-brand-black"
+                 viewBox="0 0 320 240"
+                 aria-hidden="true"
+               >
+                 <rect
+                   x="120"
+                   y="40"
+                   width="56"
+                   height="200"
+                   rx="6"
+                   fill="currentColor"
+                 />
+                 <rect
+                   x="200"
+                   y="176"
+                   width="64"
+                   height="64"
+                   rx="4"
+                   fill="currentColor"
+                 />
+                 <circle cx="232" cy="150" r="18" fill="#bff47b" />
+               </svg>
+             </div>
+
+             <!-- Contact + studio intro -->
+             <div
+               class="text-center text-sm text-brand-black/70 max-w-lg space-y-3 leading-relaxed"
+             >
+               <p>
+                 <a
+                   href="mailto:hello@lbylian.com"
+                   class="hover:text-brand-black transition"
+                 >
+                   hello@lbylian.com
+                 </a>
+               </p>
+
+               <p class="text-brand-black">
+                 Web design for small businesses who value simple, timeless
+                 design.
+               </p>
+
+               <p class="text-brand-black/60 text-xs max-w-md mx-auto">
+                 L by Lian is a boutique web design studio based in
+                 Sheffield, UK, creating custom websites for small businesses
+                 and offering selected garden photography for designers and
+                 magazines.
+               </p>
+
+               <p class="text-xs text-brand-black/70">
+                 Web design projects available year-round.
+               </p>
+             </div>
+
+             <!-- Social -->
+             <nav aria-label="Social" class="flex items-center gap-3">
+               <!-- Instagram -->
+               <a
+                 class="inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-brand-accent text-brand-black shadow-sm hover:bg-brand-accent/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40"
+                 href="https://www.instagram.com/lbylian/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Instagram: @lbylian"
+               >
+                 <svg
+                   viewBox="0 0 24 24"
+                   class="w-5 h-5 md:w-6 md:h-6"
+                   aria-hidden="true"
+                 >
+                   <path
+                     d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.8"
+                   />
+                   <circle
+                     cx="12"
+                     cy="12"
+                     r="3.5"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.8"
+                   />
+                   <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+                 </svg>
+               </a>
+
+               <!-- LinkedIn -->
+               <a
+                 class="inline-flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-brand-accent text-brand-black shadow-sm hover:bg-brand-accent/90 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-black/40"
+                 href="https://www.linkedin.com/in/lianli23/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="LinkedIn: Lian Li"
+               >
+                 <svg
+                   viewBox="0 0 24 24"
+                   class="w-5 h-5 md:w-6 md:h-6"
+                   aria-hidden="true"
+                 >
+                   <path
+                     d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.8"
+                   />
+                   <path
+                     d="M7 17v-7m0-3v.01M11 17v-4.5a2.5 2.5 0 0 1 5 0V17"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.8"
+                   />
+                 </svg>
+               </a>
+             </nav>
+
+             <!-- Legal -->
+             <div class="text-center text-xs text-brand-black space-y-1">
+               <div>© <span id="year"></span> L by Lian · Sheffield, UK</div>
+
+               <div
+                 class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-brand-black/70"
+               >
+                 <a
+                   href="privacy-policy.html"
+                   rel="nofollow"
+                   class="underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-black"
+                 >
+                   Privacy Policy
+                 </a>
+
+                 <span aria-hidden="true">•</span>
+
+                 <a
+                   href="t-and-c.html"
+                   rel="nofollow"
+                   class="underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-black"
+                 >
+                   Terms &amp; Conditions
+                 </a>
+               </div>
+
+               <div class="text-brand-black/60">
+                 By using this website you agree to the Terms &amp;
+                 Conditions.
+               </div>
+
+               <div class="text-brand-black/70">
+                 Design &amp; photography by L by Lian.
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </footer>
+
+        <script>
+          document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+          const $ = (sel) => document.querySelector(sel);
+          const btn = $("#menuBtn"),
+            menu = $("#siteMenu"),
+            closeBtn = $("#menuClose"),
+            overlay = $("#menuOverlay"),
+            disBtn = $("#disclosureBtn"),
+            panel = $("#disclosurePanel");
+
+          const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+
+          function openMenu() {
+            menu.classList.remove("translate-x-full");
+            overlay.classList.remove("opacity-0", "pointer-events-none");
+            overlay.classList.add("opacity-100");
+            document.body.classList.add("overflow-hidden");
+            btn.setAttribute("aria-expanded", "true");
+          }
+          function closeMenu() {
+            menu.classList.add("translate-x-full");
+            overlay.classList.add("opacity-0", "pointer-events-none");
+            overlay.classList.remove("opacity-100");
+            document.body.classList.remove("overflow-hidden");
+            btn.setAttribute("aria-expanded", "false");
+          }
+          btn?.addEventListener("click", openMenu);
+          closeBtn?.addEventListener("click", closeMenu);
+          overlay?.addEventListener("click", closeMenu);
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+          });
+
+          disBtn?.addEventListener("click", () => {
+            const expanded = disBtn.getAttribute("aria-expanded") === "true";
+            disBtn.setAttribute("aria-expanded", String(!expanded));
+            (disBtn.querySelector("svg") || {}).classList?.toggle?.(
+              "rotate-180",
+              !expanded
+            );
+
+            if (!expanded) {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } else {
+              panel.style.maxHeight = "0px";
+            }
+          });
+          if (reduceMotion && panel) panel.style.transition = "none";
+
+          (function () {
+            const v = document.getElementById("aboutHeroVideo");
+            if (!v) return;
+
+            const show = () => v.classList.add("opacity-100");
+            v.addEventListener("loadeddata", show, { once: true });
+            v.addEventListener("canplay", show, { once: true });
+
+            if (v.readyState >= 2) show();
+
+            if (reduceMotion) {
+              v.pause();
+              v.removeAttribute("autoplay");
+              v.controls = true;
+              v.classList.add("opacity-100");
+            }
+          })();
+
+          (function () {
+            const belt = document.querySelector(".belt");
+            const secondSet = document.querySelector(
+              '.belt-set[aria-hidden="true"]'
+            );
+            const track = document.querySelector(".belt-track");
+            if (!belt || !secondSet || !track) return;
+
+            const eagerSecondSet = () => {
+              const imgs = secondSet.querySelectorAll('img[loading="lazy"]');
+              imgs.forEach((img) => (img.loading = "eager"));
+            };
+
+            if ("IntersectionObserver" in window) {
+              const io = new IntersectionObserver(
+                (entries) => {
+                  for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                      eagerSecondSet();
+                      io.disconnect();
+                      break;
+                    }
+                  }
+                },
+                { threshold: 0.15 }
+              );
+              io.observe(belt);
+            } else {
+              eagerSecondSet();
+            }
+
+            const firstImgs = document.querySelectorAll(
+              '.belt-set[aria-hidden="false"] img'
+            );
+            if (!firstImgs.length) return;
+
+            const restart = () => {
+              const prev = getComputedStyle(track).animation;
+              track.style.animation = "none";
+              void track.offsetHeight;
+              track.style.animation = prev && prev !== "none" ? "" : "";
+            };
+
+            let pending = 0;
+            firstImgs.forEach((img) => {
+              if (!img.complete) pending += 1;
+            });
+
+            if (pending === 0) {
+              restart();
+              return;
+            }
+
+            let done = 0;
+            firstImgs.forEach((img) => {
+              if (img.complete) return;
+              img.addEventListener(
+                "load",
+                () => {
+                  done += 1;
+                  if (done === pending) restart();
+                },
+                { once: true }
+              );
+              img.addEventListener(
+                "error",
+                () => {
+                  done += 1;
+                  if (done === pending) restart();
+                },
+                { once: true }
+              );
+            });
+          })();
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
